@@ -4,7 +4,7 @@ module.exports = {
   base: "/blog/",
   host: "localhost",
   port: "2000",
-  head: ["link", { rel: "icon", href: "favicon.ico" }],
+  head: [["link", { rel: "icon", href: "favicon.ico" }]],
   themeConfig: {
     sidebar: [
       {
