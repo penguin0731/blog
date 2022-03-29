@@ -6,6 +6,7 @@ module.exports = {
   port: "2000",
   head: [["link", { rel: "icon", href: "favicon.ico" }]],
   themeConfig: {
+    lastUpdated: "上次更新",
     sidebar: [
       {
         title: "简介",
