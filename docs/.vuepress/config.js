@@ -12,32 +12,37 @@ module.exports = {
         path: "/introduction/",
       },
       {
-        title: "html",
+        title: "HTML",
         collapsable: false,
-        children: [{ title: "盒模型", path: "/html/盒模型" }],
+        children: [{ title: "盒模型", path: "/HTML/盒模型" }],
       },
       {
-        title: "css",
+        title: "CSS",
+        collapsable: false,
+        children: [
+          {
+            title: "单行与多行文本的溢出处理",
+            path: "/CSS/单行与多行文本的溢出处理",
+          },
+        ],
+      },
+      {
+        title: "JavaScript",
+        collapsable: false,
+        children: [{ title: "介绍", path: "/JavaScript/介绍" }],
+      },
+      {
+        title: "Vue",
         collapsable: false,
         // children: [{ title: "盒模型", path: "/html/盒模型" }],
       },
       {
-        title: "javascript",
+        title: "React",
         collapsable: false,
         // children: [{ title: "盒模型", path: "/html/盒模型" }],
       },
       {
-        title: "vue",
-        collapsable: false,
-        // children: [{ title: "盒模型", path: "/html/盒模型" }],
-      },
-      {
-        title: "react",
-        collapsable: false,
-        // children: [{ title: "盒模型", path: "/html/盒模型" }],
-      },
-      {
-        title: "typescript",
+        title: "TypeScript",
         collapsable: false,
         // children: [{ title: "盒模型", path: "/html/盒模型" }],
       },
