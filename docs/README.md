@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /penguin.png
+heroImage: /images/penguin.png
 heroText: 陈欣健的博客
 tagline: 随便写写
 actionText: Get Started →
