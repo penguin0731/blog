@@ -62,7 +62,7 @@ module.exports = {
     ],
     nav: [
       { text: "Home", link: "/" },
-      { text: "Exte", link: "https://google.com" },
+      { text: "Github", link: "https://github.com/penguin0731" },
     ],
   },
   markdown: {
