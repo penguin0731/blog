@@ -22,6 +22,10 @@ module.exports = {
         collapsable: false,
         children: [
           {
+            title: "圣杯布局与双飞翼布局",
+            path: "/CSS/圣杯布局与双飞翼布局",
+          },
+          {
             title: "单行与多行文本的溢出处理",
             path: "/CSS/单行与多行文本的溢出处理",
           },
@@ -57,6 +61,24 @@ module.exports = {
         collapsable: false,
         children: [
           { title: "VSCode代码格式化规范", path: "/规范/VSCode代码格式化规范" },
+        ],
+      },
+      {
+        title: "工作踩坑记录",
+        collapsable: false,
+        children: [
+          {
+            title: "ios在企业微信中无法长按识别小程序码或二维码",
+            path: "/工作踩坑记录/ios在企业微信中无法长按识别小程序码或二维码",
+          },
+          {
+            title: "ios的日期格式",
+            path: "/工作踩坑记录/ios的日期格式",
+          },
+          {
+            title: "Vetur1149错误",
+            path: "/工作踩坑记录/Vetur1149错误",
+          },
         ],
       },
     ],

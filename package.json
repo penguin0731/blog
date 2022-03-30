@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "vuepress dev docs --open --temp .temp",
+    "dev": "vuepress dev docs --open --temp .temp && nodemon ./docs/.vuepress/config.js",
     "build": "vuepress build docs",
     "deploy": "sh deploy.sh"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "nodemon": "^2.0.15",
     "vuepress": "^1.9.7"
   }
 }
