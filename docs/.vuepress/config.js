@@ -90,4 +90,5 @@ module.exports = {
   markdown: {
     lineNumbers: true,
   },
+  plugins: ["@vuepress/active-header-links", "@vuepress/back-to-top"],
 };
