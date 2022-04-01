@@ -4,16 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "vuepress dev docs --open --temp .temp && nodemon ./docs/.vuepress/config.js",
+    "dev": "cross-env NODE_ENV=development vuepress dev docs --open --temp .temp",
     "build": "vuepress build docs",
     "deploy": "sh deploy.sh"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@vssue/api-github-v3": "^1.4.7",
+    "@vssue/vuepress-plugin-vssue": "^1.4.8",
     "@vuepress/plugin-active-header-links": "^1.9.7",
     "@vuepress/plugin-back-to-top": "^1.9.7",
-    "nodemon": "^2.0.15",
+    "cross-env": "^7.0.3",
     "vuepress": "^1.9.7"
   }
 }
