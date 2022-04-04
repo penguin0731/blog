@@ -43,7 +43,10 @@ module.exports = {
       {
         title: "JavaScript",
         collapsable: false,
-        children: [{ title: "介绍", path: "/JavaScript/介绍" }],
+        children: [
+          { title: "介绍", path: "/JavaScript/介绍" },
+          { title: "原型与继承", path: "/JavaScript/原型与继承" },
+        ],
       },
       {
         title: "Vue",
