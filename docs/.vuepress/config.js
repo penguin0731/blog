@@ -35,6 +35,10 @@ module.exports = {
             path: "/CSS/圣杯布局与双飞翼布局",
           },
           {
+            title: "flex布局",
+            path: "/CSS/flex布局",
+          },
+          {
             title: "单行与多行文本的溢出处理",
             path: "/CSS/单行与多行文本的溢出处理",
           },

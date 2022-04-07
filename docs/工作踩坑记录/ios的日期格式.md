@@ -14,3 +14,7 @@ ios不支持`YYYY-MM-DD`，需要改成`YYYY/MM/DD`
 new Date('2021/06/30 00:00:00')
 ```
 
+<Vssue 
+    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
+    :title="$page.relativePath.split('/')[1]" 
+/>

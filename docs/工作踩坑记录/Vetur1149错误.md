@@ -26,3 +26,7 @@ import Home from './page/Home/Home';
   - git rm --cached xxx -r 删除未被追踪的文件，xxx表示文件的绝对路径。
 - [参考资料](https://github.com/microsoft/TypeScript/issues/25460#issuecomment-531068391)
 
+<Vssue 
+    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
+    :title="$page.relativePath.split('/')[1]" 
+/>
