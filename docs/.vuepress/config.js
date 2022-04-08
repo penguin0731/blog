@@ -64,7 +64,10 @@ module.exports = {
       {
         title: "React",
         collapsable: false,
-        // children: [{ title: "盒模型", path: "/html/盒模型" }],
+        children: [
+          { title: "介绍", path: "/React/介绍" },
+          { title: "JSX", path: "/React/JSX" },
+        ],
       },
       {
         title: "TypeScript",
