@@ -55,7 +55,11 @@ module.exports = {
       {
         title: "Vue",
         collapsable: false,
-        // children: [{ title: "盒模型", path: "/html/盒模型" }],
+        children: [
+          { title: "介绍", path: "/Vue/介绍" },
+          { title: "指令", path: "/Vue/指令" },
+          { title: "虚拟Dom", path: "/Vue/虚拟Dom" },
+        ],
       },
       {
         title: "React",
