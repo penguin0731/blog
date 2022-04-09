@@ -38,3 +38,8 @@ Vue中有一个compile模块，它主要负责将模板转换为render函数，�
 模板的存在，仅仅是为了让开发人员更加方便的书写界面代码
 
 **Vue最终运行的时候，最终需要的是render函数，而不是模板，因此，模板中的各种语法，在虚拟Dom中都是不存在的，它们都会变成虚拟Dom的配置**
+
+<Vssue 
+    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
+    :title="$page.relativePath.split('/')[1]" 
+/>
