@@ -1,5 +1,7 @@
 # JSX简介
 
+> 资料参考：[JSX简介](https://react.docschina.org/docs/introducing-jsx.html)
+
 JSX是Facebook起草的JavaScript扩展语法，React推荐在React中配合使用JSX，它有点类似模板语言，能够很好的描述HTML结构。每个JSX有且只有一个根节点，并且必须有`/>`结束标签（遵守XML规范）。
 
 ## 使用
@@ -60,3 +62,24 @@ const title = response.potentiallyMaliciousInput;
 const element = <h1>{title}</h1>;
 ```
 
+### JSX的本质是对象
+
+Babel 会把 JSX 转译成一个名为 `React.createElement()` 函数调用。
+
+以下两种示例代码完全等效：
+
+```jsx
+const element = (
+	<h1 className="greeting">
+		Hello, world!
+	</h1>
+);
+```
+
+```jsx
+const element = React.createElement(
+	'h1',
+	{className: 'greeting'},
+	'Hello, world!'
+);
+```

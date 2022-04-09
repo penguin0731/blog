@@ -23,12 +23,12 @@ module.exports = {
       },
       {
         title: "HTML",
-        collapsable: false,
+        collapsable: true,
         children: [{ title: "盒模型", path: "/HTML/盒模型" }],
       },
       {
         title: "CSS",
-        collapsable: false,
+        collapsable: true,
         children: [
           {
             title: "圣杯布局与双飞翼布局",
@@ -46,7 +46,7 @@ module.exports = {
       },
       {
         title: "JavaScript",
-        collapsable: false,
+        collapsable: true,
         children: [
           { title: "介绍", path: "/JavaScript/介绍" },
           { title: "原型与继承", path: "/JavaScript/原型与继承" },
@@ -54,7 +54,7 @@ module.exports = {
       },
       {
         title: "Vue",
-        collapsable: false,
+        collapsable: true,
         children: [
           { title: "介绍", path: "/Vue/介绍" },
           { title: "指令", path: "/Vue/指令" },
@@ -63,7 +63,7 @@ module.exports = {
       },
       {
         title: "React",
-        collapsable: false,
+        collapsable: true,
         children: [
           { title: "介绍", path: "/React/介绍" },
           { title: "JSX", path: "/React/JSX" },
@@ -71,24 +71,24 @@ module.exports = {
       },
       {
         title: "TypeScript",
-        collapsable: false,
+        collapsable: true,
         // children: [{ title: "盒模型", path: "/html/盒模型" }],
       },
       {
         title: "webpack",
-        collapsable: false,
+        collapsable: true,
         // children: [{ title: "盒模型", path: "/html/盒模型" }],
       },
       {
         title: "规范",
-        collapsable: false,
+        collapsable: true,
         children: [
           { title: "VSCode代码格式化规范", path: "/规范/VSCode代码格式化规范" },
         ],
       },
       {
         title: "工作踩坑记录",
-        collapsable: false,
+        collapsable: true,
         children: [
           {
             title: "ios在企业微信中无法长按识别小程序码或二维码",
