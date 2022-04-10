@@ -87,6 +87,7 @@ module.exports = {
         collapsable: true,
         children: [
           { title: "VSCode代码格式化规范", path: "/规范/VSCode代码格式化规范" },
+          { title: "递归函数规范", path: "/规范/递归函数规范" },
         ],
       },
       {
