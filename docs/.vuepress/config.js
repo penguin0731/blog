@@ -31,6 +31,10 @@ module.exports = {
         collapsable: true,
         children: [
           {
+            title: "Selectors",
+            path: "/CSS/Selectors",
+          },
+          {
             title: "圣杯布局与双飞翼布局",
             path: "/CSS/圣杯布局与双飞翼布局",
           },
@@ -51,6 +55,7 @@ module.exports = {
           { title: "介绍", path: "/JavaScript/介绍" },
           { title: "原型与继承", path: "/JavaScript/原型与继承" },
           { title: "ES6之Class", path: "/JavaScript/ES6之Class" },
+          { title: "ES6之Symbol", path: "/JavaScript/ES6之Symbol" },
         ],
       },
       {
