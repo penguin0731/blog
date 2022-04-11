@@ -126,6 +126,37 @@ p:first-child {
 - `::selection`：被用户选中高亮的部分
 - `::placeholder`：表单元素的占位文本
 
+## 属性选择器
+
+属性选择器用`[]`表示，它通过已存在的属性名或属性值匹配元素。
+
+```css
+/* 存在title属性的<a> 元素 */
+a[title] {
+  color: purple;
+}
+
+/* 存在href属性并且属性值匹配"https://example.org"的<a> 元素 */
+a[href="https://example.org"] {
+  color: green;
+}
+
+/* 存在href属性并且属性值包含"example"的<a> 元素 */
+a[href*="example"] {
+  font-size: 2em;
+}
+
+/* 存在href属性并且属性值结尾是".org"的<a> 元素 */
+a[href$=".org"] {
+  font-style: italic;
+}
+
+/* 存在class属性并且属性值包含以空格分隔的"logo"的<a>元素 */
+a[class~="logo"] {
+  padding: 2px;
+}
+```
+
 ## 相邻兄弟选择器
 
 相邻兄弟选择器用`+`表示，用来匹配某个元素后的第一个兄弟节点。
@@ -148,3 +179,9 @@ img ~ p {
 }
 ```
 
+
+
+<Vssue 
+    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
+    :title="$page.relativePath.split('/')[1]" 
+/>
