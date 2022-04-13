@@ -88,6 +88,18 @@ module.exports = {
         // children: [{ title: "盒模型", path: "/html/盒模型" }],
       },
       {
+        title: "浏览器",
+        collapsable: true,
+        children: [
+          { title: "浏览器的缓存策略", path: "/浏览器/浏览器的缓存策略" },
+        ],
+      },
+      {
+        title: "计算机网络",
+        collapsable: true,
+        // children: [{ title: "盒模型", path: "/html/盒模型" }],
+      },
+      {
         title: "规范",
         collapsable: true,
         children: [
