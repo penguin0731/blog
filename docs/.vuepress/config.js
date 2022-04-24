@@ -56,6 +56,7 @@ module.exports = {
           { title: "原型与继承", path: "/JavaScript/原型与继承" },
           { title: "ES6之Class", path: "/JavaScript/ES6之Class" },
           { title: "ES6之Symbol", path: "/JavaScript/ES6之Symbol" },
+          { title: "blob下载文件", path: "/JavaScript/blob下载文件" }
         ],
       },
       {
