@@ -14,12 +14,18 @@ function downloadFile(url, fileName) {
       	a.download = fileName;
       	a.click();
     }
-
-    if (
-      	url.includes('data:image/jpeg;base64') ||
-      	url.includes('data:image/png;base64')
-    ) {
-      	// 如果是base64图片
+    
+    const imgFormatList = ['jpeg', 'jpg', 'png'];
+    const toBase64ImgStr = format => `data:image/${format};base64`;
+    const toSuffix = format => `.${format}`;
+	const canIDownload = imgFormatList.some(item => {
+        const base64 = toBase64ImgStr(item);
+        const suffix = toSuffix(item);
+        // 是否是base64或以.xxx为后缀名的资源
+        return url.startsWith(base64) || url.endsWith(suffix);
+    });
+    if (canIDownload) {
+      	// 如果是base64图片或明确格式的资源
      	 _createTagA(url);
     } else {
       	// 如果是跨域文件路径
@@ -35,3 +41,7 @@ function downloadFile(url, fileName) {
 }
 ```
 
+<Vssue 
+    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
+    :title="$page.relativePath.split('/')[1]" 
+/>
