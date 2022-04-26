@@ -56,6 +56,7 @@ module.exports = {
           { title: "原型与继承", path: "/JavaScript/原型与继承" },
           { title: "ES6之Class", path: "/JavaScript/ES6之Class" },
           { title: "ES6之Symbol", path: "/JavaScript/ES6之Symbol" },
+          { title: "ES6之Set", path: "/JavaScript/ES6之Set" },
           { title: "blob下载文件", path: "/JavaScript/blob下载文件" }
         ],
       },
@@ -93,6 +94,7 @@ module.exports = {
         collapsable: true,
         children: [
           { title: "浏览器的缓存策略", path: "/浏览器/浏览器的缓存策略" },
+          { title: "垃圾回收机制", path: "/浏览器/垃圾回收机制" },
         ],
       },
       {
