@@ -10,3 +10,136 @@
 - try catch只能捕获同步代码中的异常
 - 同步并发的异步存在一定的问题
 
+而Promise的出现，就是为了解决这些异步编程产生的问题。
+
+::: warning 注意
+
+Promise并不能消除回调，它只是让回调变得可控。
+
+也就是说，Promise把执行代码和处理结果清晰地分开了。
+
+:::
+
+## Promise API
+
+Promise有三种状态：
+
+- pending：初始状态，表示操作进行中
+- fulfilled：已兑现，表示操作成功
+- rejected：已拒绝，表示操作失败
+
+Promise构造函数接收一个函数作为参数，一般情况下我们称这个函数为执行函数（executor），执行函数有两个参数，分别是resolve和reject，它们两个也是函数，它们的作用就是改变Promise的状态。
+
+resolve函数执行时，会将Promise的状态从pending变为fulfilled。
+
+reject函数执行时，会将Promise的状态从pending变为rejected。
+
+```js
+var promise = new Promise((resolve, reject) => {
+    // do something
+    setTimeout(() => {
+        Math.random() > 0.5 ? resolve('ok') : reject('no')
+    });
+});
+```
+
+在创建好promise实例后，我们可以通过实例上的then函数和catch函数来获取操作成功或失败的结果。
+
+### then
+
+then函数有两个参数，一个是fulfilled状态的回调函数，另一个（可选）是rejected状态的回调函数。
+
+```js
+promise.then(res => {
+	console.log(res);
+}, err => {
+	console.log(err);
+});
+```
+
+then函数会返回一个新的promise实例，因此可以链式调用。回调函数的返回会作为这个新promise的结果。
+
+::: tip 提示
+
+执行函数是同步执行，then函数和catch函数都是异步执行，且属于微任务，详细请了解[事件循环](./事件循环EventLoop)
+
+:::
+
+```js
+setTimeout(() => {
+    console.log(4);
+});
+new Promise(resolve => { 
+    resolve(1);
+    console.log(3)
+}).then(res => {
+	console.log(res);
+	return 2;
+}).then(res => {
+	console.log(res);
+});
+
+// 3
+// 1
+// 2
+// 4
+```
+
+回调函数也允许返回一个promise，这个promise的状态和结果，会作为then函数返回的promise的状态和结果。
+
+```js
+var p1 = new Promise((resolve, reject) => {
+    reject(11);
+});
+
+var p2 = new Promise(resolve => {
+    resolve();
+}).then(() => {
+    return p1;
+}).catch(res => {
+    console.log(res); // 11
+});
+```
+
+上面的代码中，p2的第一个then函数中的回调函数返回了p1实例，那么第一个then函数返回的promise的状态和结果由p1决定，当p1的状态发生改变时，这个promise的状态也会随之改变。
+
+### catch
+
+catch函数相当于`.then(null, catchable)`，用来捕获程序错误和reject函数传递的结果。
+
+```js
+var promise = new Promise((resolve, reject) => {
+	reject('no');
+}).catch(err => {
+	console.log(err); // 'no'
+})
+```
+
+我们一般不推荐在then函数中定义rejected状态的回调函数，即then的第二个参数。
+
+```js
+// bad
+promise.then(res => {
+    console.log(res);
+}, err => {
+    console.log(err);
+});
+
+// good
+promise.then(res => {
+    console.log(res);
+}).catch(err => {
+    console.log(err);
+})
+```
+
+上面的代码中，第二种代码写法要好于第一种，因为它能够捕获前面then的程序错误，也更方便理解，因此建议用catch函数而不是then的第二个参数。
+
+### Promise.all
+
+
+
+
+
+### Promise.race
+

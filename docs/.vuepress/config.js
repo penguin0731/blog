@@ -57,8 +57,10 @@ module.exports = {
           { title: "ES6之Class", path: "/JavaScript/ES6之Class" },
           { title: "ES6之Symbol", path: "/JavaScript/ES6之Symbol" },
           { title: "ES6之Set与Map", path: "/JavaScript/ES6之Set与Map" },
+          { title: "ES6之Promise", path: "/JavaScript/ES6之Promise" },
           { title: "ES6之新增的Object API", path: "/JavaScript/ES6之新增的Object API" },
-          { title: "blob下载文件", path: "/JavaScript/blob下载文件" }
+          { title: "blob下载文件", path: "/JavaScript/blob下载文件" },
+          { title: "事件循环EventLoop", path: "/JavaScript/事件循环EventLoop" }
         ],
       },
       {
