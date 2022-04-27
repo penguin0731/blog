@@ -113,3 +113,7 @@ var p = new Peroson();
 console.log(Object.getPrototypeOf(p) === Peroson.prototype); // true
 ```
 
+<Vssue 
+    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
+    :title="$page.relativePath.split('/')[1]" 
+/>
