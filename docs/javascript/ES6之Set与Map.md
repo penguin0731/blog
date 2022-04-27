@@ -161,3 +161,7 @@ obj2 = null;
 console.log(wm);
 ```
 
+<Vssue 
+    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
+    :title="$page.relativePath.split('/')[1]" 
+/>
