@@ -135,11 +135,76 @@ promise.then(res => {
 
 上面的代码中，第二种代码写法要好于第一种，因为它能够捕获前面then的程序错误，也更方便理解，因此建议用catch函数而不是then的第二个参数。
 
+### Promise.resolve
+
+Promise.resolve函数接收一个参数作为结果，并且返回一个状态为fulfilled的promise实例。
+
+```js
+var p = Promise.resolve('success');
+p.then(res => {
+	console.log(res); // success
+});
+```
+
+### Promise.reject
+
+Promise.reject函数接收一个参数作为结果，并且返回一个状态为rejected的promise实例。
+
+```js
+var p = Promise.reject('fail');
+p.catch(res => {
+	console.log(res); // fail
+});
+```
+
 ### Promise.all
 
+Promise.all函数接收一个数组作为参数，数组成员是promise实例，当所有的数组成员的状态都变成fulfilled时，会将成功的结果数组传递给fulfilled状态的回调函数。如果其中一个promise状态变为rejected，那么就会立即将这个失败的结果传递给rejected状态的回调函数。
 
+```js
+var p1 = Promise.resolve(1);
+var p2 = 123;
+var p3 = Promise.reject(2);
 
+// 如果数组成员里包含了非promsie的值，那么它会被忽略并且返回到结果数组中
+Promise.all([p1, p2]).then(res => {
+	console.log(res); // [1, 123]
+});
 
+Promise.all([p1, p3]).catch(err => {
+    console.log(err); // 2
+});
+```
 
 ### Promise.race
+
+race有赛跑的意思，Promise.race函数的参数与Promise.all一致，因此它会将第一个发生状态改变的promise的结果传递给对应状态的回调函数。
+
+```js
+var p1 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve('success 0.5s');
+    }, 500);
+});
+var p2 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve('success 0.1s');
+    }, 100);
+});
+var p3 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        reject('fail 0.2s');
+    }, 200);
+});
+
+Promise.race([p1, p2]).then(res => {
+	console.log(res); // success 0.1s
+});
+
+Promise.race([p1, p3]).then(res => {
+    console.log(res); // 不会执行
+}).catch(err => {
+    console.log(err); // fail 0.2s
+});
+```
 
