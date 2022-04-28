@@ -6,7 +6,7 @@
 
 ::: warning 注意
 
-不推荐使用通配符选择器，因为它是性能最低的CSS选择器
+不推荐使用通配符选择器，因为它是性能最低的CSS选择器。
 
 :::
 
@@ -178,8 +178,6 @@ img ~ p {
 	color: red;
 }
 ```
-
-
 
 <Vssue 
     :options="{ labels: [$page.relativePath.split('/')[0]] }" 
