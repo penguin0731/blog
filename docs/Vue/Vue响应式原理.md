@@ -1,4 +1,4 @@
-> 资料参考：[深入响应式原理](https://cn.vuejs.org/v2/guide/reactivity.html)
+# Vue响应式原理
 
 ::: tip 提示
 
@@ -107,6 +107,10 @@ vm.d = "new data";
 2. 由Watcher执行第一次render函数，触发响应式对象的getter进行依赖收集（Dep.depend），记录相关的Watcher
 3. 当响应式对象被改变时，触发setter进行派发更新（Dep.notify），通知之前记录的Watcher去执行render函数
 4. 然而Watcher并不会立即执行，而是通过Scheduler将自己放入到一个队列中，这个过程会去重，相同的Watcher只留下一个，然后将这些Watcher的执行函数映射成一个数组，通过nextTick放到微队列中，按照事件循环机制执行，即执行完同步任务，按顺序执行异步任务中的微任务，执行到执行函数时，就再次触发Watcher执行render函数，再次收集依赖，等待派发更新
+
+## 参考资料
+
+- [官方文档 - 深入响应式原理](https://cn.vuejs.org/v2/guide/reactivity.html)
 
 <Vssue 
     :options="{ labels: [$page.relativePath.split('/')[0]] }" 

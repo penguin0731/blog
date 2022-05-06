@@ -1,4 +1,4 @@
-> 资料参考：[VueCli配置参考](https://cli.vuejs.org/zh/config/)
+# VueCli配置
 
 在根目录新建文件，命名为`vue.config.js`
 
@@ -40,6 +40,10 @@ module.exports = {
 	}
 }
 ```
+
+## 参考资料
+
+- [官方文档 - VueCli配置参考](https://cli.vuejs.org/zh/config/)
 
 <Vssue 
     :options="{ labels: [$page.relativePath.split('/')[0]] }" 
