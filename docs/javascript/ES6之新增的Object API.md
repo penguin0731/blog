@@ -92,7 +92,7 @@ var obj = Object.fromEntries(map); // { foo: true, bar: false }
 
 ## Object.setPrototypeOf
 
-它的作用和`__proto__`一样，用于给对象设置原型对象，返回对象本身，但是`__proto__`不属于web标准，实际上`__proto__`是各大浏览器产商实现的，在非浏览器环境中，一般是不存在`__proto__`属性的，因此我们推荐使用Objet.setPrototypeOf。
+它的作用和`__proto__`一样，用于给对象设置原型对象，返回对象本身，但是`__proto__`不属于web标准，实际上`__proto__`是各大浏览器产商实现的，因此我们推荐使用Objet.setPrototypeOf。
 
 ```js
 let proto = {};
