@@ -1,7 +1,5 @@
 # JSX简介
 
-> 资料参考：[JSX简介](https://react.docschina.org/docs/introducing-jsx.html)
-
 JSX是Facebook起草的JavaScript扩展语法，React推荐在React中配合使用JSX，它有点类似模板语言，能够很好的描述HTML结构。每个JSX有且只有一个根节点，并且必须有`/>`结束标签（遵守XML规范）。
 
 ## 使用
@@ -83,6 +81,10 @@ const element = React.createElement(
 	'Hello, world!'
 );
 ```
+
+## 参考资料
+
+- [官方文档 - JSX简介](https://react.docschina.org/docs/introducing-jsx.html)
 
 <Vssue 
     :options="{ labels: [$page.relativePath.split('/')[0]] }" 

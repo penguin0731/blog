@@ -24,7 +24,10 @@ import Home from './page/Home/Home';
   - git config --get core.ignorecase 查看是否为忽视大小写，默认为true
   - git config core.ignorecase false 设置不忽视大小写
   - git rm --cached xxx -r 删除未被追踪的文件，xxx表示文件的绝对路径。
-- [参考资料](https://github.com/microsoft/TypeScript/issues/25460#issuecomment-531068391)
+
+## 参考链接
+
+- [https://github.com/microsoft/TypeScript/issues/25460](https://github.com/microsoft/TypeScript/issues/25460#issuecomment-531068391)
 
 <Vssue 
     :options="{ labels: [$page.relativePath.split('/')[0]] }" 

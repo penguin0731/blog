@@ -6,7 +6,10 @@
 
 - 尝试过将img替换成background-image，经过测试不仅没法解决，连安卓都失去了长按识别的功能，可见企业微信是基于img元素实现的长按识别
 - 上网查找解决方案均无效，后来想起企业微信跟微信一样，内置浏览器使用是ios自己的内核，而ios在长按目标时，会显示有关链接的标注信息，正好有一个css属性是能够控制这一行为的，就是-webkit-touch-callout，只需要将它设置为none就可以了
-- [参考链接](https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-touch-callout)
+
+## 参考链接
+
+- [-webkit-touch-callout - CSS: Cascading Style Sheets | MDN (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-touch-callout)
 
 <Vssue 
     :options="{ labels: [$page.relativePath.split('/')[0]] }" 
