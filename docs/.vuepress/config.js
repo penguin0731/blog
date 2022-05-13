@@ -13,7 +13,19 @@ module.exports = {
   base: "/blog/",
   host: "localhost",
   port: "2000",
-  head: [["link", { rel: "icon", href: "favicon.ico" }]],
+  head: [
+    ["link", { rel: "icon", href: "/favicon.ico" }],
+    // 引入百度统计代码
+    ["script", {}, `
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?92d7175f9322eca415c75ed0ff61d9aa";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    `]
+  ],
   themeConfig: {
     lastUpdated: "上次更新",
     sidebar: [
@@ -158,5 +170,14 @@ module.exports = {
         locale: "zh-CN",
       },
     ],
+    [
+      "vuepress-plugin-nuggets-style-copy",
+      {
+        copyText: "复制代码",
+        tip: {
+          content: "复制成功"
+        }
+      }
+    ]
   ],
 };
