@@ -117,7 +117,10 @@ module.exports = {
       {
         title: "计算机网络",
         collapsable: true,
-        children: [{ title: "五层网络模型", path: "/计算机网络/五层网络模型" }],
+        children: [
+          { title: "五层网络模型", path: "/计算机网络/五层网络模型" },
+          { title: "常见的请求方法", path: "/计算机网络/常见的请求方法" },
+        ],
       },
       {
         title: "规范",
