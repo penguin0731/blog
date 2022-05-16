@@ -108,6 +108,7 @@ module.exports = {
         title: "浏览器",
         collapsable: true,
         children: [
+          { title: "Cookie", path: "/浏览器/Cookie" },
           { title: "浏览器的缓存策略", path: "/浏览器/浏览器的缓存策略" },
           { title: "垃圾回收机制", path: "/浏览器/垃圾回收机制" },
           { title: "浏览器工作原理", path: "/浏览器/浏览器工作原理" },
