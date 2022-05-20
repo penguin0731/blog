@@ -122,6 +122,7 @@ module.exports = {
           { title: "五层网络模型", path: "/计算机网络/五层网络模型" },
           { title: "常见的请求方法", path: "/计算机网络/常见的请求方法" },
           { title: "JWT", path: "/计算机网络/JWT" },
+          { title: "跨域", path: "/计算机网络/跨域" },
         ],
       },
       {
