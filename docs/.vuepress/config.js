@@ -157,7 +157,7 @@ module.exports = {
     ],
   },
   markdown: {
-    lineNumbers: true,
+    lineNumbers: 2,
   },
   plugins: [
     "@vuepress/active-header-links",
