@@ -125,6 +125,9 @@ module.exports = {
           { title: "跨域", path: "/计算机网络/跨域" },
           { title: "文件上传", path: "/计算机网络/文件上传" },
           { title: "TCP协议", path: "/计算机网络/TCP协议" },
+          { title: "CSRF攻击", path: "/计算机网络/CSRF攻击" },
+          { title: "XSS攻击", path: "/计算机网络/XSS攻击" },
+          { title: "常见的网络性能优化", path: "/计算机网络/常见的网络性能优化" },
         ],
       },
       {
