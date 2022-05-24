@@ -1,0 +1,25 @@
+# CSRF攻击
+
+## 介绍
+
+CSRF（Cross-site request forgery，跨站请求伪造）
+
+它是指攻击者利用了用户的身份信息，执行了用户非本意的操作。
+
+它会引导用户访问一个危险网站，当用户访问网站后，网站会发送请求到被攻击的站点，这次请求会携带用户的Cookie发送，因此就利用了用户的身份信息完成攻击。
+
+![image-20220524144708146](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/image-20220524144708146.png)
+
+## 防御方式
+
+| 防御手段        | 防御力 | 问题                                    |
+| --------------- | ------ | --------------------------------------- |
+| 不使用cookie    | ⭐️⭐️⭐️⭐️⭐️  | 兼容性略差<br />ssr会遇到困难，但可解决 |
+| 使用sameSite    | ⭐️⭐️⭐️⭐️   | 兼容性差<br />容易挡住自己人            |
+| 使用csrf token  | ⭐️⭐️⭐️⭐️⭐️  | 获取到token后未进行操作仍然会被攻击     |
+| 使用referer防护 | ⭐️⭐️     | 过去很常用，现在已经发现漏洞            |
+
+<Vssue 
+    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
+    :title="$page.relativePath.split('/')[1]" 
+/>
