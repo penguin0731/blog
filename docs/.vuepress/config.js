@@ -128,6 +128,7 @@ module.exports = {
           { title: "CSRF攻击", path: "/计算机网络/CSRF攻击" },
           { title: "XSS攻击", path: "/计算机网络/XSS攻击" },
           { title: "常见的网络性能优化", path: "/计算机网络/常见的网络性能优化" },
+          { title: "断点续传", path: "/计算机网络/断点续传" },
         ],
       },
       {
