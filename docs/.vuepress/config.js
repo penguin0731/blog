@@ -190,6 +190,21 @@ module.exports = {
           content: "复制成功"
         }
       }
+    ],
+    [
+      "@vuepress/last-updated",
+      {
+        transformer: (timestamp) => {
+          // 不要忘了安装 moment
+          const moment = require("moment");
+          moment.locale("zh-CN");
+          const formatStr = "YYYY年MM月DD日 HH:mm:ss"; // 日期格式化标准
+          const dayDuration = moment.duration(1, 'days'); // 1天的时长
+          const now = moment(); // 当前时间
+          const from = moment(timestamp); // 文章上次更新的时间
+          return now - from > dayDuration ? from.format(formatStr) : from.fromNow();
+        }
+      }
     ]
   ],
 };
