@@ -2,7 +2,7 @@
 
 ## 概述
 
-回顾登录流程：
+回顾一下[使用Cookie解决如何维持登录状态](../浏览器/Cookie.md)的场景：
 
 <img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/image-20220516104356436.png" alt="image-20220516104356436" style="zoom:80%;" />
 
