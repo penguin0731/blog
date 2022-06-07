@@ -53,3 +53,24 @@
 
 <img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/image-20220606165005672.png" alt="image-20220606165005672" style="zoom:67%;" />
 
+从上图可以看出：
+
+- WebSocket也是建立在TCP协议之上的，利用的是TCP全双工通信的能力
+- 使用WebSocket，会经历两个阶段：握手阶段、通信阶段
+
+虽然优于轮询方案，但WebSocket仍然是有缺点的：
+
+- 兼容性
+- WebSocket是HTML5新增的内容，因此古董版本的浏览器并不支持
+- 维持TCP连接需要耗费资源
+  - 对于那些消息量少的场景，维持TCP连接确实会造成资源的浪费
+
+> 为了充分利用TCP连接的资源，在使用了WebSocket的页面，可以放弃ajax，都用WebSocket进行通信，当然这会带来程序设计上的一些问题，需要权衡。
+
+### 握手
+
+WebSocket协议是一个高扩展性的协议，详细内容会比较复杂，这里仅讲解面试中会问到的握手协议。
+
+当客户端需要和服务器使用WebSocket进行通信时，首先会使用**HTTP协议**完成一次特殊的请求-响应，这一次请求-响应就是**WebSocket握手**。
+
+在握手阶段，首先由客户端向服务器发送一个请求，请求地址格式如下：
