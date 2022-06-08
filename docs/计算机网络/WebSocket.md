@@ -74,3 +74,45 @@ WebSocket协议是一个高扩展性的协议，详细内容会比较复杂，�
 当客户端需要和服务器使用WebSocket进行通信时，首先会使用**HTTP协议**完成一次特殊的请求-响应，这一次请求-响应就是**WebSocket握手**。
 
 在握手阶段，首先由客户端向服务器发送一个请求，请求地址格式如下：
+
+```shell
+# 使用HTTP
+ws://mysite.com/path
+# 使用HTTPS
+wss://mysite.com/path
+```
+
+请求头如下：
+
+```css
+Connection: Upgrade /* 嘿，后续咱们别用HTTP了，升级吧 */
+Upgrade: websocket /* 我们把后续的协议升级为websocket */
+Sec-WebSocket-Version: 13 /* websocket协议版本就用13好吗？ */
+Sec-WebSocket-Key: YWJzZmFkZmFzZmRhYw== /* 暗号：天王盖地虎 */
+```
+
+服务器如果同意，就应该响应下面的消息：
+
+```css
+HTTP/1.1 101 Switching Protocols /* 换，马上换协议 */
+Connection: Upgrade /* 协议升级了 */
+Upgrade: websocket /* 升级到websocket */
+Sec-WebSocket-Accept: ZzIzMzQ1Z2V3NDUyMzIzNGVy /* 暗号：小鸡炖蘑菇 */
+```
+
+**握手完成，后续消息收发不再使用HTTP，任何一方都可以主动发消息给对方**
+
+## 总结
+
+WebSocket是HTML5新增的协议，它利用HTTP协议完成握手，然后通过TCP连接通道发送消息，使用WebSocket协议能够实现服务器主动发送消息。
+
+客户端和服务端要使用WebSocket进行通信时，首先需要客户端向服务器发送一个HTTP请求以进行WebSocket握手，请求行中的 path 需要使用`ws:`开头的地址，请求头中要分别加入`upgrade`、`connection`、`Sec-WebSocket-Key`、`Sec-WebSocket-Version`标记。
+
+然后，服务器收到请求后，发现这是一个WebSocket协议的握手请求，于是在响应行中添加`Switching Protocols`，同时在响应头中添加`upgrade`、`connection`、`Sec-WebSocket-Accept`标记。
+
+最后，当客户端收到响应后即可完成握手，随后使用建立的TCP连接直接发送和接收消息。
+
+<Vssue 
+    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
+    :title="$page.relativePath.split('/')[1]" 
+/>
