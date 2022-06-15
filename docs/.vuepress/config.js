@@ -219,6 +219,14 @@ module.exports = {
           return now - from > dayDuration ? from.format(formatStr) : from.fromNow();
         }
       }
-    ]
+    ],
+    [
+      'vuepress-plugin-container',
+      {
+        type: 'vue',
+        before: '<pre class="vue-container"><code>',
+        after: '</code></pre>'
+      }
+    ],
   ],
 };
