@@ -6,7 +6,18 @@ I/O：input/output，输入输出
 
 ## fs模块
 
-案例目录如下：
+fs模块给我们提供了与文件系统交互的能力，它提供的API有分同步和异步两种，如读取文件的同步方法`readFileAsync`和异步方法`readFile`。建议大家多使用异步方法，因为对文件的操作需要时间，使用异步不会阻塞，性能更好一点。
+
+在ES6发布之后，node新增了基于Promise的API，使用方法如下：
+
+```js
+// v14.0.0的使用方法
+const fs = require('node:fs/promises');
+// v10.1.0的使用方法
+const fs = require('fs').promises;
+```
+
+案例主要以回调的API为主，目录如下：
 
 ::: vue 
 
@@ -42,7 +53,15 @@ fs.readFile(filename, 'utf-8', (err, content) => {
 
 ### [写入文件](http://nodejs.cn/api/fs.html#fswritefilefile-data-options-callback)
 
-```
+```js
+const fs = require('fs');
+const path = require('path');
 
+const filename = path.resolve(__dirname, './myFile/2.txt');
+const buffer = Buffer.from('test write file', 'utf-8');
+fs.writeFile(filename, buffer, err => {
+    if (err) throw err;
+    console.log('写入成功');
+});
 ```
 
