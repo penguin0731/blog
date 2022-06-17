@@ -36,10 +36,10 @@ const fs = require('fs');
 const path = require('path');
 
 // bad
-// fs.readFile('./1.txt');
+// fs.readFile('./myFile/1.txt');
 
 // good
-const filename = path.resolve(__dirname, '/1.txt');
+const filename = path.resolve(__dirname, './myFile/1.txt');
 fs.readFile(filename, 'utf-8', (err, content) => {
     console.log(err, content);
 });
@@ -58,10 +58,66 @@ const fs = require('fs');
 const path = require('path');
 
 const filename = path.resolve(__dirname, './myFile/2.txt');
-const buffer = Buffer.from('test write file', 'utf-8');
-fs.writeFile(filename, buffer, err => {
+fs.writeFile(filename, 'test', {
+    flag: 'a' // 表示添加内容，而不是覆盖
+}, err => {
     if (err) throw err;
     console.log('写入成功');
+});
+```
+
+::: warning 注意
+
+如果写入的路径里有不存在的文件夹，那么就会报错。正确的做法应该是先创建好文件夹再写入。
+
+:::
+
+## [获取文件或文件夹信息](http://nodejs.cn/api/fs.html#fsstatpath-options-callback)
+
+```js
+const fs = require('fs');
+const path = require('path');
+
+const filename = path.resolve(__dirname, './myFile/2.txt');
+fs.stat(filename, (err, stats) => {
+    console.log(stats.isDirectory()); // false
+    console.log(stats);
+});
+```
+
+其中，`stats`的内容包括：
+
+- `size`：占用的字节数
+- `atime`：上次访问的时间
+- `mtime`：上次文件内容被修改的时间
+- `ctime`：上次文件状态被修改的时间
+- `birthtime`：文件创建时间
+- `isDirectory()`：判断是否是目录
+- `isFile()`：判断是否是文件
+
+## [获取文件夹中的文件和子文件夹](http://nodejs.cn/api/fs.html#fsreaddirpath-options-callback)
+
+```js
+const fs = require('fs');
+const path = require('path');
+
+const dirname = path.resolve(__dirname, './myFile');
+fs.readdir(dirname, (err, files) => {
+    console.log(files); // [ '1.txt', '2.txt' ]
+});
+```
+
+## [创建文件夹](http://nodejs.cn/api/fs.html#fsmkdirpath-options-callback)
+
+```js
+const fs = require('fs');
+const path = require('path');
+
+const dirname = path.resolve(__dirname, './myFile/sub');
+fs.mkdir(dirname, err => {
+    if (!err) {
+        console.log('文件夹创建成功')
+    } 
 });
 ```
 
