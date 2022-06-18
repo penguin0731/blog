@@ -24,7 +24,7 @@
 
 ![image-20220409222028675](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/image-20220409222028675.png)
 
-Observer是Vue内部的构造器，我们可以通过Vue提供的静态方法Vue.observable(object)间接的使用该功能。
+Observer是Vue内部的构造器，我们可以通过Vue提供的静态方法`Vue.observable(object)`间接的使用该功能。
 
 在组件生命周期中，这件事发生在beforeCreate之后，created之前。
 
@@ -97,7 +97,7 @@ vm.d = "new data";
 
 # 总结
 
-最后用自己话总结一下整个流程。
+最后用自己的话总结一下整个流程。
 
 在Vue响应式数据的实现逻辑里，有这样四个核心，分别是Observer、Dep、Watcher、Scheduler。
 
