@@ -1,10 +1,9 @@
 # 文件I/O
 
-I/O：input/output，输入输出
+I/O：input/output，输入输出。
 
 常见的I/O设备有磁盘、网卡、显卡、打印机等，I/O的处理速度往往低于内存和CPU的处理速度。
 
-## fs模块
 
 fs模块给我们提供了与文件系统交互的能力，它提供的API有分同步和异步两种，如读取文件的同步方法`readFileAsync`和异步方法`readFile`。建议大家多使用异步方法，因为对文件的操作需要时间，使用异步不会阻塞，性能更好一点。
 
@@ -25,11 +24,13 @@ const fs = require('fs').promises;
 ├─package-lock.json
 ├─package.json
 ├─myFile
-|   └1.txt
+|   ├─1.txt
+|   ├─2.txt
+|   ├─sub
 
 :::
 
-### [读取文件](http://nodejs.cn/api/fs.html#fsreadfilepath-options-callback)
+## [读取文件](http://nodejs.cn/api/fs.html#fsreadfilepath-options-callback)
 
 ```js
 const fs = require('fs');
@@ -51,7 +52,7 @@ fs.readFile(filename, 'utf-8', (err, content) => {
 
 :::
 
-### [写入文件](http://nodejs.cn/api/fs.html#fswritefilefile-data-options-callback)
+## [写入文件](http://nodejs.cn/api/fs.html#fswritefilefile-data-options-callback)
 
 ```js
 const fs = require('fs');
@@ -71,6 +72,19 @@ fs.writeFile(filename, 'test', {
 如果写入的路径里有不存在的文件夹，那么就会报错。正确的做法应该是先创建好文件夹再写入。
 
 :::
+
+## [删除文件](http://nodejs.cn/api/fs.html#fsunlinkpath-callback)
+
+```js
+const fs = require('fs');
+const path = require('path');
+
+const filename = path.resolve(__dirname, './1.txt');
+fs.unlink(filename, err => {
+	if (err) throw err;
+    console.log('删除成功');
+});
+```
 
 ## [获取文件或文件夹信息](http://nodejs.cn/api/fs.html#fsstatpath-options-callback)
 
@@ -121,3 +135,20 @@ fs.mkdir(dirname, err => {
 });
 ```
 
+## [删除文件夹](http://nodejs.cn/api/fs.html#fsrmdirpath-options-callback)
+
+```js
+const fs = require('fs');
+const path = require('path');
+
+const dirname = path.resolve(__dirname, './test');
+fs.rmdir(dirname, err => {
+	if (err) throw err;
+    console.log('文件夹删除成功');
+});
+```
+
+<Vssue 
+    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
+    :title="$page.relativePath.split('/')[1]" 
+/>
