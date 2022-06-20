@@ -39,7 +39,7 @@
 
 长轮询解决了短轮询的问题，让每次请求都有意义。
 
-![image-20220606164755838](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/image-20220606164755838.png)
+<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/image-20220606164755838.png" alt="image-20220606164755838" style="zoom:67%;" />
 
 但长轮询仍然存在问题：
 
@@ -51,7 +51,7 @@
 
 伴随着HTML5出现的WebSocket，从**协议**上赋予了服务器主动推送消息的能力。
 
-<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/image-20220606165005672.png" alt="image-20220606165005672" style="zoom:67%;" />
+<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/image-20220606165005672.png" alt="image-20220606165005672" style="zoom: 50%;" />
 
 从上图可以看出：
 
