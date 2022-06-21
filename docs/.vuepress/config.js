@@ -72,8 +72,7 @@ module.exports = {
           { title: "ES6之Set与Map", path: "/JavaScript/ES6之Set与Map" },
           { title: "ES6之Promise", path: "/JavaScript/ES6之Promise" },
           { title: "ES6之新增的Object API", path: "/JavaScript/ES6之新增的Object API" },
-          { title: "blob下载文件", path: "/JavaScript/blob下载文件" },
-          { title: "事件循环EventLoop", path: "/JavaScript/事件循环EventLoop" }
+          { title: "blob下载文件", path: "/JavaScript/blob下载文件" }
         ],
       },
       {
@@ -114,6 +113,7 @@ module.exports = {
           { title: "垃圾回收机制", path: "/浏览器/垃圾回收机制" },
           { title: "浏览器工作原理", path: "/浏览器/浏览器工作原理" },
           { title: "跨标签页通信", path: "/浏览器/跨标签页通信" },
+          { title: "浏览器中的事件循环", path: "/浏览器/浏览器中的事件循环" }
         ],
       },
       {
