@@ -8,7 +8,7 @@ libuv库中的事件循环分为6个阶段，它们会按照顺序反复运行�
 
 从上图中，大致看出Node中的事件循环的顺序：
 
-外部的请求连接、数据等 --> poll 轮询阶段 --> check 检查阶段 --> close callbacks 关闭回调阶段 --> timer 定时器阶段 --> pending callbacks 等待回调阶段 --> idle, prepare 阶段 --> poll 轮询阶段（按照该顺序反复运行）...
+外部的请求连接、数据等 --> poll 轮询阶段 --> check 检查阶段 --> close callbacks 关闭回调阶段 --> timers 定时器阶段 --> pending callbacks 等待回调阶段 --> idle, prepare 阶段 --> poll 轮询阶段（按照该顺序反复运行）...
 
 ## 阶段概述
 
@@ -191,3 +191,8 @@ test()
 ## 参考链接
 
 - [浏览器与Node的事件循环(Event Loop)有何区别? ](https://juejin.cn/post/6844903761949753352#heading-13)
+
+<Vssue 
+    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
+    :title="$page.relativePath.split('/')[1]" 
+/>
