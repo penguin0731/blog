@@ -36,28 +36,18 @@ module.exports = {
       {
         title: "HTML",
         collapsable: true,
-        children: [{ title: "盒模型", path: "/HTML/盒模型" }],
+        children: [
+          { title: "盒模型", path: "/HTML/盒模型" },
+        ],
       },
       {
         title: "CSS",
         collapsable: true,
         children: [
-          {
-            title: "Selectors",
-            path: "/CSS/Selectors",
-          },
-          {
-            title: "圣杯布局与双飞翼布局",
-            path: "/CSS/圣杯布局与双飞翼布局",
-          },
-          {
-            title: "flex布局",
-            path: "/CSS/flex布局",
-          },
-          {
-            title: "单行与多行文本的溢出处理",
-            path: "/CSS/单行与多行文本的溢出处理",
-          },
+          { title: "Selectors", path: "/CSS/Selectors" },
+          { title: "圣杯布局与双飞翼布局", path: "/CSS/圣杯布局与双飞翼布局" },
+          { title: "flex布局",  path: "/CSS/flex布局" },
+          { title: "单行与多行文本的溢出处理", path: "/CSS/单行与多行文本的溢出处理" },
         ],
       },
       {
@@ -72,7 +62,7 @@ module.exports = {
           { title: "ES6之Set与Map", path: "/JavaScript/ES6之Set与Map" },
           { title: "ES6之Promise", path: "/JavaScript/ES6之Promise" },
           { title: "ES6之新增的Object API", path: "/JavaScript/ES6之新增的Object API" },
-          { title: "blob下载文件", path: "/JavaScript/blob下载文件" }
+          { title: "blob下载文件", path: "/JavaScript/blob下载文件" },
         ],
       },
       {
@@ -84,6 +74,7 @@ module.exports = {
           { title: "VueCli配置", path: "/Vue/VueCli配置" },
           { title: "虚拟Dom", path: "/Vue/虚拟Dom" },
           { title: "Vue响应式原理", path: "/Vue/Vue响应式原理" },
+          { title: "Vue的长列表优化", path: "/Vue/Vue的长列表优化" },
         ],
       },
       {
@@ -97,12 +88,16 @@ module.exports = {
       {
         title: "TypeScript",
         collapsable: true,
-        children: [{ title: "介绍", path: "/TypeScript/介绍" },],
+        children: [
+          { title: "介绍", path: "/TypeScript/介绍" },
+        ],
       },
       {
         title: "webpack",
         collapsable: true,
-        children: [{ title: "介绍", path: "/webpack/介绍" }],
+        children: [
+          { title: "介绍", path: "/webpack/介绍" },
+        ],
       },
       {
         title: "浏览器",
@@ -113,7 +108,7 @@ module.exports = {
           { title: "垃圾回收机制", path: "/浏览器/垃圾回收机制" },
           { title: "浏览器工作原理", path: "/浏览器/浏览器工作原理" },
           { title: "跨标签页通信", path: "/浏览器/跨标签页通信" },
-          { title: "浏览器中的事件循环", path: "/浏览器/浏览器中的事件循环" }
+          { title: "浏览器中的事件循环", path: "/浏览器/浏览器中的事件循环" },
         ],
       },
       {
