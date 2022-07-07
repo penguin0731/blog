@@ -99,6 +99,7 @@ module.exports = {
           { title: "介绍", path: "/webpack/介绍" },
           { title: "编译过程", path: "/webpack/编译过程" },
           { title: "入口和出口", path: "/webpack/入口和出口" },
+          { title: "loader", path: "/webpack/loader" },
         ],
       },
       {
