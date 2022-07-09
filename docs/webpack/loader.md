@@ -79,6 +79,7 @@ module.exports = {
 |  ├─index.js
 |  ├─assets
 |  |   └webpack.png
+|  |   └penguin.jpg
 ├─package.json
 |  ├─loader-utils: ^1.2.3
 |  ├─webpack: ^4.36.1
@@ -88,11 +89,10 @@ module.exports = {
 :::
 
 ```js
-// img-loader.js
 var loaderUtils = require('loader-utils');
 
-function getBase64(buffer) {
-    return `data:image/png;base64,${buffer.toString('base64')}`
+function getBase64(buffer, ext) {
+    return `data:image/${ ext };base64,${ buffer.toString('base64') }`
 }
 
 function getFilePath(buffer, name) {
@@ -109,9 +109,11 @@ module.exports = function(buffer) {
     if (buffer.byteLength > limit) {
         content = getFilePath.call(this, buffer, name);
     } else {
-        content = getBase64(buffer);
+        var splitArr = this.resourcePath.split('.');
+        var ext = splitArr[splitArr.length - 1]; // 获取后缀名
+        content = getBase64(buffer, ext);
     }
-    return `module.exports = \`${content}\``
+    return `module.exports = \`${ content }\``
 }
 
 // 默认情况下，资源文件（即sourceCode入参）会被转换成utf-8字符串
@@ -145,12 +147,12 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(png)|(jpg)|(jpeg)|(gif)$/g,
+                test: /\.(png)|(jpg)|(jpeg)|(gif)$/,
                 use: [
                     {
                         loader: './loaders/img-loader',
                         options: {
-                            limit: 10000,
+                            limit: 10000, // 超过10kb使用图片，否则使用base64
                             name: 'img-[contenthash:5].[ext]'
                         }
                     }
