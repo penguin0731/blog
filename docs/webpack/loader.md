@@ -64,6 +64,113 @@ module.exports = {
 }
 ```
 
+## 案例
+
+### 处理图片
+
+目录如下：
+
+:::vue
+
+├─loaders
+|    ├─img-loader
+|    |     └index.js
+├─src
+|  ├─index.js
+|  ├─assets
+|  |   └webpack.png
+├─package.json
+|  ├─loader-utils: ^1.2.3
+|  ├─webpack: ^4.36.1
+|  ├─webpack-cli: ^3.3.10
+├─webpack.config.js
+
+:::
+
+```js
+// img-loader.js
+var loaderUtils = require('loader-utils');
+
+function getBase64(buffer) {
+    return `data:image/png;base64,${buffer.toString('base64')}`
+}
+
+function getFilePath(buffer, name) {
+    var filename = loaderUtils.interpolateName(this, name, {
+        content: buffer
+    });
+    this.emitFile(filename, buffer); // 生成一个文件
+    return filename
+}
+
+module.exports = function(buffer) {
+    var { limit = 1000, name = '[name].[ext]' } = loaderUtils.getOptions(this);
+    var content;
+    if (buffer.byteLength > limit) {
+        content = getFilePath.call(this, buffer, name);
+    } else {
+        content = getBase64(buffer);
+    }
+    return `module.exports = \`${content}\``
+}
+
+// 默认情况下，资源文件（即sourceCode入参）会被转换成utf-8字符串
+// 通过设置静态属性raw为true，可以接收原始的Buffer
+module.exports.raw = true;
+
+```
+
+```js
+// index.js
+var imgSrc = require('./assets/webpack.png');
+console.log(imgSrc);
+var img = document.createElement('img');
+img.src = imgSrc;
+document.body.appendChild(img);
+```
+
+```js
+// webpack.config.js
+var path = require('path');
+
+module.exports = {
+    mode: 'development',
+    entry: {
+        main: './src/index.js'
+    },
+    output: {
+        path: path.resolve(__dirname, './dist'),
+        filename: '[name].js'
+    },
+    module: {
+        rules: [
+            {
+                test: /\.(png)|(jpg)|(jpeg)|(gif)$/g,
+                use: [
+                    {
+                        loader: './loaders/img-loader',
+                        options: {
+                            limit: 10000,
+                            name: 'img-[contenthash:5].[ext]'
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    devtool: 'source-map'
+}
+```
+
+
+
+## 参考链接
+
+- [模块(module) | webpack 中文网 (webpackjs.com)](https://www.webpackjs.com/configuration/module/)
+
+- [编写一个 loader | webpack 中文网 (webpackjs.com)](https://www.webpackjs.com/contribute/writing-a-loader/)
+- [loader API | webpack 中文网 (webpackjs.com)](https://www.webpackjs.com/api/loaders/)
+
 <Vssue 
     :options="{ labels: [$page.relativePath.split('/')[0]] }" 
     :title="$page.relativePath.split('/')[1]" 
