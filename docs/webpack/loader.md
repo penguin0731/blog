@@ -19,7 +19,7 @@ loader是在解析模块的过程中被调用的。
 1. 在读取到文件内容后，webpack会根据loader配置的规则判断当前模块是否满足
    1. 如果满足，则会读取该规则中对应的loader，然后将读取到的loader函数依次放入到loaders数组中
    2. 如果不满足，那么loaders数组则为空
-2. 将源码字符串自右向左经过loader函数处理得到最终的源码字符串
+2. 将源码字符串自右向左（或自下向上）经过loader函数处理得到最终的源码字符串
 
 
 
@@ -73,8 +73,8 @@ module.exports = {
 :::vue
 
 ├─loaders
-|    ├─img-loader
-|    |     └index.js
+|  ├─img-loader
+|  |   └index.js
 ├─src
 |  ├─index.js
 |  ├─assets
@@ -89,6 +89,7 @@ module.exports = {
 :::
 
 ```js
+// img-loader.js
 var loaderUtils = require('loader-utils');
 
 function getBase64(buffer, ext) {
