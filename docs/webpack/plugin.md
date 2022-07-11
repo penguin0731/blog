@@ -54,9 +54,68 @@ class MyPlugin{
 
 钩子处理函数有一个参数`compilation`
 
+## 案例
+
+### 添加文件列表
+
+目录如下：
+
+:::vue
+├─src
+|  ├─index.js
+|  ├─plugins
+|  |    ├─FileListPlugin
+|  |    |       └index.js
+├─package.json
+|  ├─webpack: ^4.36.1
+|  ├─webpack-cli: ^3.3.10
+├─webpack.config.js
+
+:::
+
+```js
+// FileListPlugin.js
+module.exports = class FileListPlugin {
+    constructor(filename = 'filelist.txt') {
+        this.filename = filename
+    }
+
+    apply(compiler) {
+        // 在输出打包文件前
+        compiler.hooks.emit.tap('FileListPlugin', (complation) => {
+            var filelist = [];
+            // 遍历资源列表
+            for (const key in complation.assets) {
+                var content = `【${ key }】\n大小：${complation.assets[key].size() / 1000}KB`;
+                filelist.push(content)
+            }
+            var str = filelist.join('\n\n');
+            complation.assets[this.filename] = {
+                source() { return str }, // 新增文件的内容
+                size() { return str.length } // 新增文件的大小
+            }
+        })
+    }
+}
+```
+
+```js
+// webpack.config.js
+var FileListPlugin = require('./src/plugins/FileListPlugin');
+
+module.exports = {
+    mode: 'development',
+    plugins: [
+        new FileListPlugin('文件列表.md')
+    ],
+    devtool: 'source-map'
+}
+```
+
 
 
 <Vssue 
     :options="{ labels: [$page.relativePath.split('/')[0]] }" 
     :title="$page.relativePath.split('/')[1]" 
 />
+
