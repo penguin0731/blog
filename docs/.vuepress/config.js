@@ -101,6 +101,7 @@ module.exports = {
           { title: "入口和出口", path: "/webpack/入口和出口" },
           { title: "loader", path: "/webpack/loader" },
           { title: "plugin", path: "/webpack/plugin" },
+          { title: "性能优化概述", path: "/webpack/性能优化概述" },
         ],
       },
       {

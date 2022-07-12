@@ -104,7 +104,7 @@ function getFilePath(buffer, name) {
     return filename
 }
 
-module.exports = function(buffer) {
+function imgLoader(buffer) {
     var { limit = 1000, name = '[name].[ext]' } = loaderUtils.getOptions(this);
     var content;
     if (buffer.byteLength > limit) {
@@ -119,8 +119,9 @@ module.exports = function(buffer) {
 
 // 默认情况下，资源文件（即sourceCode入参）会被转换成utf-8字符串
 // 通过设置静态属性raw为true，可以接收原始的Buffer
-module.exports.raw = true;
+imgLoader.raw = true;
 
+module.exports = imgLoader;
 ```
 
 ```js
