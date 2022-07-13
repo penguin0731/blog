@@ -103,6 +103,7 @@ module.exports = {
           { title: "plugin", path: "/webpack/plugin" },
           { title: "性能优化概述", path: "/webpack/性能优化概述" },
           { title: "构建性能-减少模块解析", path: "/webpack/构建性能-减少模块解析" },
+          { title: "构建性能-优化loader性能", path: "/webpack/构建性能-优化loader性能" },
         ],
       },
       {
