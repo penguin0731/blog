@@ -102,6 +102,7 @@ module.exports = {
           { title: "loader", path: "/webpack/loader" },
           { title: "plugin", path: "/webpack/plugin" },
           { title: "性能优化概述", path: "/webpack/性能优化概述" },
+          { title: "构建性能-减少模块解析", path: "/webpack/构建性能-减少模块解析" },
         ],
       },
       {
