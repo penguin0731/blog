@@ -105,6 +105,7 @@ module.exports = {
           { title: "构建性能-减少模块解析", path: "/webpack/构建性能-减少模块解析" },
           { title: "构建性能-优化loader性能", path: "/webpack/构建性能-优化loader性能" },
           { title: "构建性能-热替换", path: "/webpack/构建性能-热替换" },
+          { title: "传输性能-分包", path: "/webpack/传输性能-分包" },
         ],
       },
       {
