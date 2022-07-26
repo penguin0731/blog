@@ -49,9 +49,100 @@ webpack之所以选择ES6的模块导入语句，是因为ES6模块有以下特�
 
 在具体分析依赖时，webpack坚持的原则是：**保证代码正常运行，然后再尽量tree shaking**。
 
-所以，如果你依赖的是一个导出的对象，由于JS语言的动态特性，以及`webpack`还不够智能，为了保证代码正常运行，它不会移除对象中的任何属性。
+所以，如果你依赖的是一个导出的对象，由于JS语言的动态特性，以及webpack还不够智能，为了保证代码正常运行，它不会移除对象中的任何属性。
 
 因此，我们在编写代码的时候，**尽量**：
 
 - 使用`export xxx`导出，而不使用`export default {xxx}`导出
 - 使用`import {xxx} from "xxx"`导入，而不使用`import xxx from "xxx"`导入
+
+依赖分析完毕后，webpack会根据每个模块每个导出是否被使用，标记其他导出为`dead code`，然后交给代码压缩工具处理，代码压缩工具最终会移除掉那些`dead code`代码。
+
+## 使用第三方库
+
+某些第三方库可能使用的是`Commonjs`的方式导出，比如`lodash`，又或者使用了`ES6 Module`的方式，但没有使用基本导出而是默认导出。
+
+对于这些库，tree shaking是无法发挥作用的，因此要寻找这些库的ES6版本，好在很多流行但没有使用的ES6的第三方库，都发布了它的ES6版本，比如`lodash-es`。
+
+## 作用域分析
+
+tree shaking本身并没有完善的作用域分析，可能导致在一些`dead code`函数中的依赖仍然会被视为依赖。
+
+```js
+// utils.js
+import { isArray } from 'lodash-es';
+
+export function add(a, b) {
+    return a + b;
+}
+
+export function sub(a, b) {
+    return a - b;
+}
+
+export function isArr(data) {
+    console.log('isArray');
+    return isArray(data);
+}
+```
+
+```js
+// index.js
+import { add } from './utils.js';
+
+console.log(add(1, 2));
+```
+
+我们可以看到，上述代码中，虽然utils文件有依赖lodash的isArray方法，但是在整个工程中其实并没有使用到这个方法，所以应该是需要被移除的，但是我们可以发现打包文件里依然存在isArray方法，这就是因为tree shaking的作用域分析还不够完善。
+
+使用插件`webpack-deep-scope-plugin`可解决作用域分析的问题。
+
+```js
+const DeepScope = require("webpack-deep-scope-plugin").default;
+export default {
+    mode: 'production',
+	plugins: [
+        new DeepScope()
+	]
+}
+```
+
+由于这个插件会深度分析作用域，对构建速度是有影响的，并且该插件目前已经长期没有维护，因此需要根据实际情况进行权衡。
+
+## 副作用函数问题
+
+webpack在tree shaking的使用，有一个原则：**一定要保证代码正确运行**。在满足该原则的基础上，再来决定如何tree shaking。
+
+因此，当webpack无法确定某个模块是否有副作用时，它往往将其视为有副作用，这也导致某些情况可能并不是我们所想要的。
+
+```js
+//common.js
+var n  = Math.random();
+
+//index.js
+import "./common.js";
+```
+
+虽然我们根本没用有`common.js`的导出，但webpack担心`common.js`有副作用，如果去掉会影响某些功能。
+
+如果要解决该问题，就需要标记该文件是没有副作用的。
+
+在`package.json`中加入`sideEffects`：
+
+```js
+{
+    "sideEffects": false
+}
+```
+
+有两种配置方式：
+
+- false：当前工程中，所有模块都没有副作用。注意，这种写法比较暴力，不建议使用
+- 数组：设置哪些文件拥有副作用，例如：`["!src/common.js"]`，表示只要不是`src/common.js`的文件，都有副作用
+
+这种方式我们一般不处理，通常是一些第三方库在它们自己的`package.json`中标注。
+
+<Vssue 
+    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
+    :title="$page.relativePath.split('/')[1]" 
+/>
