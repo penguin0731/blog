@@ -61,7 +61,7 @@ module.exports = {
           { title: "ES6之Symbol", path: "/JavaScript/ES6之Symbol" },
           { title: "ES6之Set与Map", path: "/JavaScript/ES6之Set与Map" },
           { title: "ES6之Promise", path: "/JavaScript/ES6之Promise" },
-          { title: "ES6之新增的Object API", path: "/JavaScript/ES6之新增的Object API" },
+          { title: "ES6之新增的Object API", path: "/JavaScript/ES6之新增的ObjectAPI" },
           { title: "blob下载文件", path: "/JavaScript/blob下载文件" },
         ],
       },
@@ -107,7 +107,7 @@ module.exports = {
           { title: "构建性能-热替换", path: "/webpack/构建性能-热替换" },
           { title: "传输性能-分包", path: "/webpack/传输性能-分包" },
           { title: "传输性能-代码压缩", path: "/webpack/传输性能-代码压缩" },
-          { title: "传输性能-treeshaking", path: "/webpack/传输性能-treeshaking" },
+          { title: "传输性能-tree shaking", path: "/webpack/传输性能-treeshaking" },
         ],
       },
       {
