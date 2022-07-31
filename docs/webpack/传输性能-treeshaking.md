@@ -9,20 +9,20 @@
 ```js
 // myMath.js
 export function sum(a, b){
-  console.log("sum")
-  return a+b;
+  console.log("sum")；
+  return a + b;
 }
 
 export function sub(a, b){
   console.log("sub")
-  return a-b;
+  return a - b;
 }
 ```
 
 ```js
 // index.js
 import { sum } from "./myMath"
-console.log(sum(1,2));
+console.log(sum(1, 2));
 ```
 
 此时我们可以通过使用tree shaking将模块多余的代码清除。
