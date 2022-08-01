@@ -71,6 +71,7 @@ module.exports = {
         children: [
           { title: "介绍", path: "/Vue/介绍" },
           { title: "指令", path: "/Vue/指令" },
+          { title: "组件通信", path: "/Vue/组件通信" },
           { title: "VueCli配置", path: "/Vue/VueCli配置" },
           { title: "虚拟Dom", path: "/Vue/虚拟Dom" },
           { title: "Vue响应式原理", path: "/Vue/Vue响应式原理" },
