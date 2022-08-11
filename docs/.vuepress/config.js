@@ -75,6 +75,7 @@ module.exports = {
           { title: "VueCli配置", path: "/Vue/VueCli配置" },
           { title: "虚拟Dom", path: "/Vue/虚拟Dom" },
           { title: "Vue响应式原理", path: "/Vue/Vue响应式原理" },
+          { title: "computed和watch", path: "/Vue/computed和watch" },
           { title: "Vue的长列表优化", path: "/Vue/Vue的长列表优化" },
         ],
       },

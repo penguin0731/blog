@@ -1,4 +1,4 @@
-# computed和watcher
+# computed和watch
 
 ## computed
 
@@ -25,7 +25,7 @@ var vm = new Vue({
 
 我们可以看到，如果没有在模板中使用`this.fullName`，上面的输出语句是不会运行的，这是因为`computed watcher`不会立即执行，因为要考虑到计算属性是否会被render函数使用，如果没有使用，就不会执行。
 
-将vm实例在控制台输出，对比`_computedWatchers`属性和`_watcher`属性（即`computed watcher`和`render watcher`），可以看到它们的lazy属性不同，因为`lazy`属性控制watcher是否立即执行。
+将vm实例在控制台输出，对比`_computedWatchers`属性和`_watcher`属性（即`computed watcher`和`render watcher`），可以看到它们的`lazy`属性不同，因为`lazy`属性的作用是控制watcher是否立即执行。
 
 由于`lazy`属性的存在，wacher内部通过两个属性来实现了缓存效果，分别是`value`属性和`dirty`属性。
 
