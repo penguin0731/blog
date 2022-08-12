@@ -2,7 +2,7 @@
 
 ## computed
 
-computed的初始化发生在Vue实例的`beforeCreate`中，Vue会遍历computed选项中的每个属性，尝试获取每个属性的`getter`函数，然后为每个`getter`函数创建一个`computed watcher`，最后再判断computed选项中的每个属性是否已经被`data`选项或`props`选项占用，如果是的话则在开发环境中报响应的警告，如果不是，则利用`Object.defineProperty`给computed选项的每个属性进行代理并挂载到Vue实例中。
+computed的初始化发生在Vue实例的`beforeCreate`中，Vue会遍历computed选项中的每个属性，尝试获取每个属性的`getter`函数，然后为每个`getter`函数创建一个`computed watcher`，最后再判断computed选项中的每个属性是否已经被`data`选项或`props`选项占用，如果是的话则在开发环境中报响应的警告，如果不是，则利用`Object.defineProperty`给computed选项的每个属性转换成响应式数据并挂载到Vue实例中。
 
 整个computed的初始化过程就到此结束。
 
@@ -17,7 +17,7 @@ var vm = new Vue({
   computed: {
     fullName: function () {
       console.log('fullName运行了');
-      return this.firstName + ' ' + this.lastName
+      return this.firstName + ' ' + this.lastName;
     }
   }
 })
@@ -33,9 +33,14 @@ var vm = new Vue({
 
 `dirty`属性用来说明当前的value是否已经过时，即是否为脏值，默认为true。
 
-当我们在模板中访问`this.fullName`的时候，就触发了其对应的getter，getter会拿到对应的`computed watcher`，然后进行依赖收集，计算得到最新结果。
+### 访问计算属性
 
-在计算的过程中，首先会判断dirty，如果`dirty`为false，则直接返回`value`。如果`dirty`为true，那么就会执行我们在computed选项中定义的getter函数，即：
+当我们在模板中访问`this.fullName`的时候，就触发了其对应的getter，getter会拿到对应的`computed watcher`，然后便有了下列的操作：
+
+首先会判断`dirty`：
+
+- 如果`dirty`为false，则直接返回`value`
+- 如果`dirty`为true，那么就会执行我们在computed选项中定义的getter函数，即：
 
 ```js
 function fullName() {
@@ -44,13 +49,23 @@ function fullName() {
 }
 ```
 
-然后把`dirty`设置为false。
+由于`this.firstName`和`this.lastName`是响应式对象，因此访问它们时会触发它们各自的getter函数，然后就能计算得出`value`，再把`dirty`设置为false。
 
-这里有一个巧妙点，就是在依赖收集时，被依赖的数据不仅会收集到`computed watcher`，还会收集到`render watcher`
+其次，`computed watcher`收集`render watcher`依赖，当`computed watcher`发生变化时，通知`render watcher`做出响应更新。
+
+最后将value返回。
+
+### 计算属性的更新机制
+
+当计算属性的依赖发生变化时，由于依赖是响应式数据，那么首先触发的是它的setter函数。
+
+而响应式数据的setter函数除了更新数据之外，还会通知订阅其变化的所有watcher去执行自己的`update`方法进行更新。
+
+对于`computed watcher`，它的`update`方法就是将`dirty`设置为true，再下一个`tick`中计算`value`值。
+
+对于`render watcher`，则是通过调度器去执行更新操作。
 
 ## watch
-
-
 
 
 
@@ -61,6 +76,10 @@ function fullName() {
 
 
 
+
+## 参考链接
+
+- [计算属性 VS 侦听属性](https://ustbhuangyi.github.io/vue-analysis/v2/reactive/computed-watcher.html#computed)
 
 
 
