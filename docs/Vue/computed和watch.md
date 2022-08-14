@@ -188,5 +188,7 @@ watch本质是一个`user watche`r，它的初始化发生在Vue实例的beforeC
 
 - [计算属性 VS 侦听属性](https://ustbhuangyi.github.io/vue-analysis/v2/reactive/computed-watcher.html#computed)
 
-
-
+<Vssue 
+    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
+    :title="$page.relativePath.split('/')[1]" 
+/>
