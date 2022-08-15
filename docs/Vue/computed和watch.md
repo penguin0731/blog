@@ -146,7 +146,7 @@ var vm = new Vue({
 那么为什么`computed watcher`不会立即执行呢？还记不记得刚才提一嘴的`lazy`属性，没错，`lazy`属性的作用就是控制watcher是否延迟执行。这里可以看一下Watcher构造函数的一部分逻辑：
 
 ```js
-// src/core/observer/watcher.js
+// src/core/observer/watcher.ts
 class Watcher {
   constructor(
     vm: Component | null,
@@ -165,7 +165,7 @@ class Watcher {
 
 ### 访问计算属性
 
-当我们在模板中访问`this.fullName`的时候，就触发了其对应的getter方法，getter方法在`defineComputed`方法中，由`createComputedGetter`创建，`createComputedGetter`的实现逻辑如下：
+当我们在模板中访问`this.fullName`的时候，就触发了其对应的getter方法，getter方法在`defineComputed`函数中，由`createComputedGetter`函数创建，`createComputedGetter`函数的实现逻辑如下：
 
 ```js
 // src/core/instance/state.ts
@@ -185,7 +185,7 @@ function createComputedGetter(key) {
 }
 ```
 
-`createComputedGetter`返回一个getter函数，这个getter会拿到对应的`computed watcher`，然后便有了下列的操作：
+`createComputedGetter`函数返回一个getter函数，这个getter会拿到对应的`computed watcher`，然后便有了下列的操作：
 
 首先会判断`dirty`属性：
 
@@ -195,7 +195,7 @@ function createComputedGetter(key) {
 我们看看watcher实例上的`evaluate`函数做了什么事情：
 
 ```js
-// src/core/observer/watcher.js
+// src/core/observer/watcher.ts
 evaluate() {
   this.value = this.get()
   this.dirty = false
@@ -205,7 +205,7 @@ evaluate() {
 可以看到，通过`this.get()`获取计算属性的值，并且将`dirty`属性设置为了false。那么get是如何获取的？
 
 ```js
-// src/core/observer/watcher.js
+// src/core/observer/watcher.ts
 get() {
   pushTarget(this)
   let value
@@ -259,7 +259,7 @@ function fullName() {
 然后判断`Dep.target`，经历过获取`value`属性值后，此时`Dep.target`指向`render watcher`，于是进入判断执行`watcher.depend()`，它的实现逻辑如下：
 
 ```js
-// src/core/observer/watcher.js
+// src/core/observer/watcher.ts
 depend () {
   let i = this.deps.length
   while (i--) {
@@ -271,7 +271,7 @@ depend () {
 遍历 `deps`，调用每个 `dep` 实例的 `depend`方法 ，具体实现如下：
 
 ```js
-// src/core/observer/dep.js
+// src/core/observer/dep.ts
 depend () {
   if (Dep.target) {
     Dep.target.addDep(this)
@@ -297,14 +297,99 @@ depend () {
 
 ## watch
 
-watch的初始化也发生在Vue实例的`beforeCreate`中，在computed之后，Vue会遍历watch选项中的每个属性，尝试获取每个属性的`handler`函数：
+watch的初始化发生在computed初始化之后，在`initState`函数中。
 
-- 如果属性值是一个字符串，则根据字符串从当前的组件实例中获取作为handler函数
-- 如果属性值是一个函数，则直接作为handler函数
-- 如果属性值是一个对象，则获取对象中的handler属性值作为handler函数
-- 如果属性值是一个数组，则遍历数组的每一项，根据上述情况处理，获得handler函数
+```js
+// src/core/instance/state.ts
+export function initState(vm: Component) {
+	const opts = vm.$options
+  // ...
+	if (opts.watch && opts.watch !== nativeWatch) {
+    initWatch(vm, opts.watch)
+  }
+}
+```
 
-然后通过`$watch`方法为每一个handler函数创建一个`user watcher`，`$watch`的详情用法可参考[vm.$watch](https://v2.cn.vuejs.org/v2/api/#vm-watch)。
+当Vue实例上有watch选项时，则进行初始化操作，具体由`initWatch`函数实现：
+
+```js
+// src/core/instance/state.ts
+function initWatch(vm: Component, watch: Object) {
+  for (const key in watch) {
+    const handler = watch[key]
+    if (isArray(handler)) {
+      for (let i = 0; i < handler.length; i++) {
+        createWatcher(vm, key, handler[i])
+      }
+    } else {
+      createWatcher(vm, key, handler)
+    }
+  }
+}
+```
+
+Vue会遍历watch选项中的每个属性，尝试获取每个属性的`handler`函数：
+
+- 如果属性值是一个数组，则遍历数组的每一项，获得handler函数
+- 如果不是，则直接将watch的每个选项值作为handler函数
+
+接着执行`createWatcher`函数，它的实现逻辑如下：
+
+```js
+// src/core/instance/state.ts
+function createWatcher(
+  vm: Component,
+  expOrFn: string | (() => any),
+  handler: any,
+  options?: Object
+) {
+  if (isPlainObject(handler)) {
+    options = handler
+    handler = handler.handler
+  }
+  if (typeof handler === 'string') {
+    handler = vm[handler]
+  }
+  return vm.$watch(expOrFn, handler, options)
+}
+```
+
+在`createWatcher`函数中，对handler入参的做了更细致的分析：
+
+- 当handler入参是对象时，将对象作为$watch的配置，将对象中的handler属性作为handler函数
+- 当handler入参是字符串时，从Vue实例中读取对应的数据作为handler函数
+
+然后通过Vue实例上的`$watch`方法创建一个`user watcher`，`$watch`的详情用法可参考[官方文档的$watch](https://v2.cn.vuejs.org/v2/api/#vm-watch)，它的实现逻辑如下：
+
+```js
+// src/core/instance/state.ts
+Vue.prototype.$watch = function (
+  expOrFn: string | (() => any),
+  cb: any,
+  options?: Record<string, any>
+): Function {
+  const vm: Component = this
+  if (isPlainObject(cb)) {
+    return createWatcher(vm, expOrFn, cb, options)
+  }
+  options = options || {}
+  options.user = true
+  const watcher = new Watcher(vm, expOrFn, cb, options)
+  if (options.immediate) {
+    const info = `callback for immediate watcher "${watcher.expression}"`
+    pushTarget()
+    invokeWithErrorHandling(cb, vm, [watcher.value], vm, info)
+    popTarget()
+  }
+  return function unwatchFn() {
+    watcher.teardown()
+  }
+}
+```
+
+首先判断cb入参是否是对象，如果是，则继续执行`createWatcher`。
+
+接着获取Watcher配置，并设置`user`属性为true，然后创建watcher实例，表示为`user watcher`。
 
 这里我们也用一个案例帮助我们了解实现`$watch`的核心逻辑：
 
@@ -329,7 +414,58 @@ var vm = new Vue({
 })
 ```
 
-首先通过Watcher构造函数创建watcher实例，给wacher实例的`user`属性设置为true，表示`user watcher`。
+接下来看看Watcher构造函数在初始化时具体做了什么事？
+
+```js
+// src/core/observer/watcher.ts
+class Watcher {
+  constructor(
+    vm: Component | null,
+    expOrFn: string | (() => any),
+    cb: Function,
+    options?: WatcherOptions | null,
+    isRenderWatcher?: boolean
+  ) {
+    // ...
+    // options
+    if (options) {
+      this.deep = !!options.deep
+      this.user = !!options.user
+      this.lazy = !!options.lazy
+      this.sync = !!options.sync
+    } else {
+      this.deep = this.user = this.lazy = this.sync = false
+    }
+    this.cb = cb
+    this.id = ++uid // uid for batching
+    this.active = true
+    this.post = false
+    this.dirty = this.lazy // for lazy watchers
+    this.deps = []
+    this.newDeps = []
+    this.depIds = new Set()
+    this.newDepIds = new Set()
+    this.expression = __DEV__ ? expOrFn.toString() : ''
+    // parse expression for getter
+    if (isFunction(expOrFn)) {
+      this.getter = expOrFn
+    } else {
+      this.getter = parsePath(expOrFn)
+      if (!this.getter) {
+        this.getter = noop
+        __DEV__ &&
+          warn(
+            `Failed watching path: "${expOrFn}" ` +
+              'Watcher only accepts simple dot-delimited paths. ' +
+              'For full control, use a function instead.',
+            vm
+          )
+      }
+    }
+    this.value = this.lazy ? undefined : this.get()
+  }
+}
+```
 
 在创建watcher实例时，会计算`value`的属性值，那么就需要判断侦听目标的数据类型： 
 
@@ -359,6 +495,8 @@ handler: function (newVal, oldVal) {
 
 
 
+
+
 ## 总结
 
 ### computed
@@ -376,7 +514,7 @@ computed具有缓存机制，由wacher实例上的`value`属性和`dirty`属性�
 - 如果`dirty`为false，则直接返回`value`
 - 如果`dirty`为true，那么就会执行我们在computed选项中定义的getter函数，计算得出`value`后，将`dirty`设置为false
 
-其次，`computed watcher`收集`render watcher`依赖，当`computed watcher`发生变化时，通知`render watcher`做出响应更新。
+其次，`render watcher`订阅`computed watcher`，当`computed watcher`发生变化时，通知`render watcher`做出响应更新。
 
 最后将value返回。
 
@@ -384,7 +522,7 @@ computed具有缓存机制，由wacher实例上的`value`属性和`dirty`属性�
 
 对于`computed watcher`，它的`update`方法就是将`dirty`设置为true，在下一个`tick`中计算`value`值。
 
-对于`render watcher`，则是通过调度器去执行更新操作。
+对于`render watcher`，则是通过调度器去执行更新操作，在这个过程中，会执行render函数，由于render函数中会访问计算属性，因此触发计算属性的getter函数执行，更新`computed watcher`的`value`。
 
 
 
