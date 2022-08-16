@@ -10,9 +10,9 @@ computed的初始化发生在Vue实例初始化阶段的`beforeCreate`之后，`
 // src/core/instance/state.ts
 export function initState(vm: Component) {
 	const opts = vm.$options
-  // ...
-  if (opts.computed) initComputed(vm, opts.computed)
-  // ...
+	// ...
+	if (opts.computed) initComputed(vm, opts.computed)
+	// ...
 }
 ```
 
@@ -356,7 +356,7 @@ function createWatcher(
 
 在`createWatcher`函数中，对handler入参的做了更细致的分析：
 
-- 当handler入参是对象时，将对象作为$watch的配置，将对象中的handler属性作为handler函数
+- 当handler入参是对象时，将对象作为`$watch`的配置，将对象中的handler属性作为handler函数
 - 当handler入参是字符串时，从Vue实例中读取对应的数据作为handler函数
 
 然后通过Vue原型上的`$watch`方法创建一个`user watcher`，`$watch`的详情用法可参考[官方文档的$watch](https://v2.cn.vuejs.org/v2/api/#vm-watch)，它的实现逻辑如下：
