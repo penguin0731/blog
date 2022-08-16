@@ -1,7 +1,7 @@
 module.exports = {
     development: {
         clientId: "ee29e2f37130ab84703c",
-        clientSecret: "f943dbc170495b6fcb680fe3ee061355754aa6ae"
+        clientSecret: "c86805dc08891b903d5a141ea436cb2a13d22df5"
     },
     production: {
         clientId: "30a96024fdc7f2fe29f3",

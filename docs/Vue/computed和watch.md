@@ -359,7 +359,7 @@ function createWatcher(
 - 当handler入参是对象时，将对象作为$watch的配置，将对象中的handler属性作为handler函数
 - 当handler入参是字符串时，从Vue实例中读取对应的数据作为handler函数
 
-然后通过Vue实例上的`$watch`方法创建一个`user watcher`，`$watch`的详情用法可参考[官方文档的$watch](https://v2.cn.vuejs.org/v2/api/#vm-watch)，它的实现逻辑如下：
+然后通过Vue原型上的`$watch`方法创建一个`user watcher`，`$watch`的详情用法可参考[官方文档的$watch](https://v2.cn.vuejs.org/v2/api/#vm-watch)，它的实现逻辑如下：
 
 ```js
 // src/core/instance/state.ts
@@ -474,7 +474,7 @@ class Watcher {
 
 然后将getter函数的执行结果赋值给`value`属性。
 
-当我们侦听的结果发生变化时，watcher实例会进行以下操作：
+当我们侦听的响应式数据发生变化时，watcher实例会进行以下操作：
 
 - 将当前的`value`作为oldValue
 - 触发getter函数执行，将执行结果赋值给`value`作为newValue
@@ -530,9 +530,9 @@ computed具有缓存机制，由wacher实例上的`value`属性和`dirty`属性�
 
 watch本质是一个`user watche`r，它的初始化发生在Vue实例的beforeCreate中，它会遍历watch选项，通过Vue原型上的`$watch`方法为每个选项创建一个`user watcher`。
 
-实现$watch的核心逻辑是，通过Watcher构造函数创建watcher实例，给wacher实例的`user`属性设置为true，表示`user watcher`。
+实现`$watch`的核心逻辑是，通过Watcher构造函数创建watcher实例，给wacher实例的`user`属性设置为true，表示`user watcher`。
 
-当我们侦听的结果发生变化时，watcher实例会进行以下操作：
+当我们侦听的响应式数据发生变化时，watcher实例会进行以下操作：
 
 - 将当前的`value`作为oldValue
 - 获取最新的`value`作为newValue
@@ -548,6 +548,7 @@ watch本质是一个`user watche`r，它的初始化发生在Vue实例的beforeC
 
 - [计算属性 VS 侦听属性](https://ustbhuangyi.github.io/vue-analysis/v2/reactive/computed-watcher.html#computed)
 - [响应式原理五：computed](https://juejin.cn/post/7073856712003813384)
+- [响应式原理六：watcher](https://juejin.cn/post/7077099321996345351)
 
 <Vssue 
     :options="{ labels: [$page.relativePath.split('/')[0]] }" 
