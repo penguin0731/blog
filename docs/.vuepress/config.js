@@ -53,6 +53,7 @@ module.exports = {
         children: [
           { title: "介绍", path: "/JavaScript/介绍" },
           { title: "this对象", path: "/JavaScript/this对象" },
+          { title: "执行上下文", path: "/JavaScript/执行上下文" },
           { title: "原型与继承", path: "/JavaScript/原型与继承" },
           { title: "ES6之Class", path: "/JavaScript/ES6之Class" },
           { title: "ES6之Symbol", path: "/JavaScript/ES6之Symbol" },
