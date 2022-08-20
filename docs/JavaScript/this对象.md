@@ -45,8 +45,19 @@ console.log(this); // window
   f(); // window
   ```
   
-另外我们也可以通过函数原型上的call、bind、apply方法来手动的改变this指向。
+  - 通过new关键字调用构造函数，this对象指向构造函数的对象实例
   
+  ```js
+  function Person(name, age) {
+  	this.name = name;
+  	this.age = age;
+  }
+  
+  var jack = new Person('jack', 18); // { name: 'jack', age: 18 }
+  ```
+
+另外我们也可以通过函数原型上的call、bind、apply方法来手动的改变this指向。
+
   <Vssue 
       :options="{ labels: [$page.relativePath.split('/')[0]] }" 
       :title="$page.relativePath.split('/')[1]" 
