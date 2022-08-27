@@ -57,6 +57,7 @@ module.exports = {
           { title: "作用域", path: "/JavaScript/作用域" },
           { title: "闭包", path: "/JavaScript/闭包" },
           { title: "原型与继承", path: "/JavaScript/原型与继承" },
+          { title: "DOM事件的传播机制", path: "/JavaScript/DOM事件的传播机制" },
           { title: "ES6之Class", path: "/JavaScript/ES6之Class" },
           { title: "ES6之Symbol", path: "/JavaScript/ES6之Symbol" },
           { title: "ES6之Set与Map", path: "/JavaScript/ES6之Set与Map" },
