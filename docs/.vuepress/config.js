@@ -6,7 +6,7 @@ const clientSecret = envConfig[env].clientSecret;
 
 module.exports = {
   title: "陈欣健的博客",
-  description: "Just playing around",
+  description: "基于vuepress搭建的个人博客",
   base: "/blog/",
   host: "localhost",
   port: "2000",
