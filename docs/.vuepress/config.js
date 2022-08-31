@@ -158,6 +158,13 @@ module.exports = {
         ],
       },
       {
+        title: "设计模式",
+        collapsable: true,
+        children: [
+          { title: "介绍", path: "/设计模式/介绍" },
+        ],
+      },
+      {
         title: "规范",
         collapsable: true,
         children: [
