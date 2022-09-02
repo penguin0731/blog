@@ -309,7 +309,7 @@ depend () {
 
 而响应式数据的 setter 函数除了更新数据之外，还会通知订阅其变化的所有 watcher 去执行自己的`update`方法进行更新。
 
-对于`computed watcher`，它的`update`方法就是将`dirty`设置为true，在下一个`tick`中计算`value`值。
+对于`computed watcher`，它的`update`方法就是将`dirty`设置为 true，在下一个`tick`中计算`value`值。
 
 对于`render watcher`，则是通过调度器去执行更新操作，在这个过程中，会执行 render 函数，由于 render 函数中会访问计算属性，因此触发计算属性的 getter 函数执行，更新`computed watcher`的`value`。
 
