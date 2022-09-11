@@ -1,20 +1,37 @@
-# JSX简介
+# JSX 简介
 
-JSX是Facebook起草的JavaScript扩展语法，React推荐在React中配合使用JSX，它有点类似模板语言，能够很好的描述HTML结构。每个JSX有且只有一个根节点，并且必须有`/>`结束标签（遵守XML规范）。
+JSX 是 Facebook 起草的 JavaScript 扩展语法，React 推荐在 React 中配合使用 JSX，它有点类似模板语言，能够很好的描述 HTML 结构。每个 JSX 有且只有一个根节点，并且必须有`/>`结束标签（遵守XML规范）。
 
 ## 使用
 
-### 定义一个JSX
+### 定义一个 JSX
+
+推荐使用`()`将元素包裹，表示为表达式。因为在 JavaScript 中，`()`可以表示为表达式。
+
+每个 JSX 有且只有一个根节点。
 
 ```jsx
-const element = <h1>Hello, world!</h1>;
+const element = (<h1>Hello, world!</h1>);
 ```
 
-### 在JSX中插入表达式
+如果必须要定义两个相邻节点，且不想要根元素的话，可以使用`<></>`包裹。
+
+`<></>`其实就是`<React.Fragment></React.Fragment>`的语法糖。
+
+```jsx
+const element = (
+	<>
+		<h1>Hello, world!</h1>
+		<h2>this is jsx</h2>
+	</>
+);
+```
+
+### 在 JSX 中插入表达式
 
 ```jsx
 const name = 'Josh Perez';
-const element = <h1>Hello, {name}</h1>;
+const element = (<h1>Hello, {name}</h1>);
 const root = (
 	<div>
         {/* 使用注释 */}
@@ -26,15 +43,7 @@ const root = (
 );
 ```
 
-### JSX也是一个表达式
-
-```jsx
-function sayHello(isChild) {
-	return isChild ? <h1>Hello Child</h1> : <h1>Hello Man</h1>;
-}
-```
-
-### JSX属性
+### JSX 属性
 
 属性名均使用小驼峰命名
 
@@ -47,7 +56,7 @@ function sayHello(isChild) {
 :::
 
 ```jsx
-const element = <div tabIndex="0"></div>;
+const element = (<div tabIndex="0"></div>);
 ```
 
 ### JSX 防止注入攻击
@@ -55,10 +64,26 @@ const element = <div tabIndex="0"></div>;
 你可以安全地在 JSX 当中插入用户输入内容：
 
 ```jsx
-const title = response.potentiallyMaliciousInput;
+const title = "<h1>我是一段文本<h1>";
 // 直接使用是安全的：
-const element = <h1>{title}</h1>;
+const element = (<div>{title}</div>);
 ```
+
+如果确实需要将输入内容作为 React 元素进行编译，那么可以使用`dangerouslySetInnerHTML`属性。
+
+::: danger 注意
+
+请谨慎使用`dangerouslySetInnerHTML`属性！
+
+:::
+
+```jsx
+const title = "<h1>我是一段文本<h1>";
+// 直接使用是安全的：
+const element = (<div dangerouslySetInnerHTML={{ __html: title }}></div>);
+```
+
+
 
 ### JSX的本质是对象
 
