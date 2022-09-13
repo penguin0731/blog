@@ -86,6 +86,7 @@ module.exports = {
         children: [
           { title: "介绍", path: "/React/介绍" },
           { title: "JSX", path: "/React/JSX" },
+          { title: "React组件", path: "/React/React组件" },
         ],
       },
       {
