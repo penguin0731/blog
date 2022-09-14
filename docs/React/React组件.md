@@ -67,8 +67,8 @@ export default class MyClass extends React.Component {
 contructor (props) {
 	super(props);
 	this.state = {
-    num: 1
-  };
+		num: 1
+	};
 }
 ```
 
@@ -85,4 +85,70 @@ this.setState({
 ```
 
 ## 事件
+
+React 组件中的事件，本质上就是一个属性。React 组件的属性都遵循小驼峰命名的规则。
+
+**如果没有特殊处理，在事件处理函数中，this指向undefined。**
+
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+class MyComp extends React.Component {
+    handleClick () {
+        console.log(this); // undefined
+    }
+
+    render () {
+        return (<h1 onClick={this.handleClick}>测试</h1>);
+    }
+}
+
+ReactDOM.render(<MyComp number={10}/>, document.getElementById('root'));
+```
+
+有两种方式可以解决：
+
+- 使用bind方法重新绑定this
+
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+class MyComp extends React.Component {
+	constructor (props) {
+		super(props);
+		this.handleClick = this.handlClick.bind(this);
+	}
+  
+	handleClick () {
+		console.log(this);
+	}
+
+	render () {
+		return (<h1 onClick={this.handleClick}>测试</h1>);
+	}
+}
+
+ReactDOM.render(<MyComp number={10}/>, document.getElementById('root'));
+```
+
+- 使用箭头函数
+
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+class MyComp extends React.Component {
+    handleClick = () => {
+        console.log(this);
+    }
+
+    render () {
+        return (<h1 onClick={this.handleClick}>测试</h1>);
+    }
+}
+
+ReactDOM.render(<MyComp number={10}/>, document.getElementById('root'));
+```
 
