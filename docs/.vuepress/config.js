@@ -87,6 +87,7 @@ module.exports = {
           { title: "介绍", path: "/React/介绍" },
           { title: "JSX", path: "/React/JSX" },
           { title: "React组件", path: "/React/React组件" },
+          { title: "深入认识setState", path: "/React/深入认识setState" },
         ],
       },
       {
