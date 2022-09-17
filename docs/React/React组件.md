@@ -74,9 +74,9 @@ contructor (props) {
 
 ### 改变状态
 
-使用`this.setState({})`改变状态，不能直接改变 state，因为 React 无法监控到 state 的变化。
+使用`this.setState()`改变状态，不能直接改变 state，因为 React 无法监控到 state 的变化。
 
-一旦调用`this.setState({})`，就会导致组件重新渲染。
+一旦调用`this.setState()`，就会导致组件重新渲染。
 
 ```jsx
 this.setState({
