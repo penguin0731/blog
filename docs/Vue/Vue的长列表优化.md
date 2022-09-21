@@ -279,7 +279,7 @@ export default {
 
 可以看到使用虚拟列表之后，渲染时间只需要10ms，对于性能的提升非常巨大，因此虚拟列表算是长列表优化中的最优方案了。这个方案同样适用于虚拟表格，感兴趣的朋友可以尝试自己实现一下。
 
-最后在这里推荐一个库：[vue-virtual-scroller](https://github.com/Akryum/vue-virtual-scroller#readme)，我们上面的代码其实就是在实现这个库。
+最后在这里推荐一个库：[vue-virtual-scroller](https://github.com/Akryum/vue-virtual-scroller#readme)，我们上面的代码其实就是在实现这个库的简易版。
 
 <Vssue 
     :options="{ labels: [$page.relativePath.split('/')[0]] }" 
