@@ -36,7 +36,7 @@ export default class MyComp extends React.Component {
   }
   
 	render () {
-    console.log('render');
+		console.log('render');
 		return (
 			<div>
 				<h1>{this.state.x}</h1>
@@ -75,7 +75,7 @@ export default class MyComp extends React.Component {
   }
   
 	render () {
-    console.log('render');
+		console.log('render');
 		return (
 			<div>
 				<h1>{this.state.x}</h1>
@@ -115,7 +115,7 @@ export default class MyComp extends React.Component {
   }
   
 	render () {
-    console.log('render');
+		console.log('render');
 		return (
 			<div>
 				<h1>{this.state.x}</h1>
