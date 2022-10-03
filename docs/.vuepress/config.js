@@ -90,6 +90,7 @@ module.exports = {
           { title: "深入认识setState", path: "/React/深入认识setState" },
           { title: "类组件的生命周期", path: "/React/类组件的生命周期" },
           { title: "ref", path: "/React/ref" },
+          { title: "Context", path: "/React/Context" },
         ],
       },
       {
