@@ -24,7 +24,7 @@ Context 对象中包含两个属性：
 
 - Provider：生产者，它是一个组件。该组件会创建一个上下文，有一个 value 属性，通过该属性，可以为其数据赋值
   - 同一个 Provider，不要在多个组件中使用，如果需要在其他组件中使用该数据，应该考虑将数据提升到更高的层次
-- Consumer：后续讲解
+- Consumer：消费者，它也是一个组件。该组件是函数组件获取上下文数据的途径。
 
 
 
@@ -56,5 +56,13 @@ class MyClass extends React.Component {
 
 ### 函数组件
 
+函数组件通过使用上下文对象中的 Consumer 来获取上下文数据。
 
+我们需要传递一个函数作为 Consumer 的子节点，这个函数会接收当前的上下文作为参数，并且需要返回一个 React 节点。
+
+```jsx
+<MyContext.Consumer>
+  {value => /* 基于 context 值进行渲染*/}
+</MyContext.Consumer>
+```
 
