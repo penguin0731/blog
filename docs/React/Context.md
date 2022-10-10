@@ -24,15 +24,27 @@ Context 对象中包含两个属性：
 
 - Provider：生产者，它是一个组件。该组件会创建一个上下文，有一个 value 属性，通过该属性，可以为其数据赋值
   - 同一个 Provider，不要在多个组件中使用，如果需要在其他组件中使用该数据，应该考虑将数据提升到更高的层次
+  - 当 value 属性发生变化时，它内部的所有消费者组件都会重新渲染（不受 shouldComponentUpdate 影响），新旧值变化通过 Object.is 来确定
+
+```jsx
+<MyContext.Provider value={/* 某个值 */}>
+```
+
 - Consumer：消费者，它也是一个组件。该组件是函数组件获取上下文数据的途径。
 
 
 
 ## 读取上下文中的数据
 
+::: warning 注意
+
+当 React 组件没有被 Provider 组件包裹时，读取到的上下文数据为 defaultValue。
+
+:::
+
 ### 类组件
 
-首先需要将 Context 对象赋值给类组件的 contextType 属性，然后通过`this.context`就可以访问到上下文中的数据了。我们可以在任何生命周期函数中访问它，包括render函数。
+首先需要将 Context 对象赋值给类组件的 contextType 属性，然后通过`this.context`就可以访问到上下文中的数据了。我们可以在任何生命周期函数中访问它，包括 render 函数。
 
 ```js
 class MyClass extends React.Component {
@@ -62,7 +74,10 @@ class MyClass extends React.Component {
 
 ```jsx
 <MyContext.Consumer>
-  {value => /* 基于 context 值进行渲染*/}
+  {value => {
+    /* 基于 context 值进行渲染*/
+    return <div></div>
+  }}
 </MyContext.Consumer>
 ```
 
