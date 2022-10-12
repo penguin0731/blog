@@ -42,11 +42,31 @@ Context 对象中包含两个属性：
 
 :::
 
+
+
+
+### 函数组件
+
+函数组件通过使用上下文对象中的 Consumer 来获取上下文数据。
+
+我们需要传递一个函数作为 Consumer 的子节点，这个函数会接收当前的上下文作为参数，并且需要返回一个 React 节点。
+
+```jsx
+<MyContext.Consumer>
+	{value => {
+		/* 基于 context 值进行渲染*/
+		return <div></div>
+	}}
+</MyContext.Consumer>
+```
+
 ### 类组件
 
 首先需要将 Context 对象赋值给类组件的 contextType 属性，然后通过`this.context`就可以访问到上下文中的数据了。我们可以在任何生命周期函数中访问它，包括 render 函数。
 
-```js
+类组件也可以通过 Consumer 来获取上下文数据。
+
+```jsx
 class MyClass extends React.Component {
 	static contextType = MyContext;
 	componentDidMount() {
@@ -60,24 +80,19 @@ class MyClass extends React.Component {
 	}
 	render() {
 		console.log(this.context);
+		return (
+			<MyContext.Consumer>
+				{value => {
+					/* 基于 context 值进行渲染 */
+					return <div></div>
+				}}
+			</MyContext.Consumer>
+		)
 	}
 }
 ```
 
-
-
-### 函数组件
-
-函数组件通过使用上下文对象中的 Consumer 来获取上下文数据。
-
-我们需要传递一个函数作为 Consumer 的子节点，这个函数会接收当前的上下文作为参数，并且需要返回一个 React 节点。
-
-```jsx
-<MyContext.Consumer>
-  {value => {
-    /* 基于 context 值进行渲染*/
-    return <div></div>
-  }}
-</MyContext.Consumer>
-```
-
+<Vssue 
+    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
+    :title="$page.relativePath.split('/')[1]" 
+/>
