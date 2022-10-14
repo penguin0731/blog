@@ -91,6 +91,7 @@ module.exports = {
           { title: "类组件的生命周期", path: "/React/类组件的生命周期" },
           { title: "ref", path: "/React/ref" },
           { title: "Context", path: "/React/Context" },
+          { title: "React.PureComponent", path: "/React/React.PureComponent" },
         ],
       },
       {
