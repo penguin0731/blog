@@ -92,6 +92,7 @@ module.exports = {
           { title: "ref", path: "/React/ref" },
           { title: "Context", path: "/React/Context" },
           { title: "React.PureComponent", path: "/React/React.PureComponent" },
+          { title: "解决横切关注点问题", path: "/React/解决横切关注点问题" },
         ],
       },
       {
