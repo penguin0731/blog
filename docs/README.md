@@ -4,7 +4,7 @@ heroImage: /images/penguin.png
 heroText: 陈欣健的博客
 tagline: 随便写写
 actionText: Get Started →
-actionLink: /introduction/index
+actionLink: /frontend/introduction/index
 # features:
 # - title: 简洁至上
 #   details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。
