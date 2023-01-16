@@ -111,6 +111,7 @@ module.exports = {
               path: "React/React.PureComponent",
             },
             { title: "解决横切关注点问题", path: "React/解决横切关注点问题" },
+            { title: "Portals", path: "React/Portals" },
           ],
         },
         {
