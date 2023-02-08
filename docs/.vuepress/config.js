@@ -241,6 +241,7 @@ module.exports = {
           collapsable: true,
           children: [
             { title: "介绍", path: "Java/介绍" },
+            { title: "数据类型", path: "Java/数据类型" },
           ],
         },
       ]
