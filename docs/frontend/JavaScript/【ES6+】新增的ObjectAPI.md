@@ -1,4 +1,4 @@
-# 新增的Object API
+# 【ES6+】新增的Object API
 
 ## Object.is
 

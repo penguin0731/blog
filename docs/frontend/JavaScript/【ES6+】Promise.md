@@ -1,4 +1,4 @@
-# Promise
+# 【ES6+】Promise
 
 ## 关于异步编程
 
