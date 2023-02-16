@@ -237,6 +237,7 @@ module.exports = {
             { title: "介绍", path: "Java/介绍" },
             { title: "数据类型", path: "Java/数据类型" },
             { title: "类型转换", path: "Java/类型转换" },
+            { title: "数组", path: "Java/数组" },
           ],
         },
       ]
