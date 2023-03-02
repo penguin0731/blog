@@ -239,6 +239,7 @@ module.exports = {
             { title: "类型转换", path: "Java/类型转换" },
             { title: "数组", path: "Java/数组" },
             { title: "类和对象", path: "Java/类和对象" },
+            { title: "类和类的关系", path: "Java/类和类的关系" },
           ],
         },
       ]
