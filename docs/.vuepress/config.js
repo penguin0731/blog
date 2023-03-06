@@ -240,6 +240,7 @@ module.exports = {
             { title: "数组", path: "Java/数组" },
             { title: "类和对象", path: "Java/类和对象" },
             { title: "类和类的关系", path: "Java/类和类的关系" },
+            { title: "修饰符", path: "Java/修饰符" },
           ],
         },
       ]
