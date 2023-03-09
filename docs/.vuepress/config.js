@@ -242,6 +242,7 @@ module.exports = {
             { title: "类和对象", path: "Java/类和对象" },
             { title: "类和类的关系", path: "Java/类和类的关系" },
             { title: "修饰符", path: "Java/修饰符" },
+            { title: "Java面向对象的三大特征", path: "Java/Java面向对象的三大特征" },
           ],
         },
       ]
