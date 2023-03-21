@@ -244,6 +244,7 @@ module.exports = {
             { title: "修饰符", path: "Java/修饰符" },
             { title: "Java的运行机制", path: "Java/Java的运行机制" },
             { title: "Java面向对象的三大特征", path: "Java/Java面向对象的三大特征" },
+            { title: "接口", path: "Java/接口" },
           ],
         },
       ]
