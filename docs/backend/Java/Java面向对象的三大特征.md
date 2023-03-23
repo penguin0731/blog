@@ -48,7 +48,7 @@ public abstract class SuperClass{
 class SubClass extends SuperClass{
      //实现抽象方法
       void m(){
-          .........
+          System.out.println("m");
       }
 }
 ```
