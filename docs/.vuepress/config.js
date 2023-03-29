@@ -245,6 +245,7 @@ module.exports = {
             { title: "Java的运行机制", path: "Java/Java的运行机制" },
             { title: "Java面向对象的三大特征", path: "Java/Java面向对象的三大特征" },
             { title: "接口", path: "Java/接口" },
+            { title: "内部类", path: "Java/内部类" },
           ],
         },
       ]
