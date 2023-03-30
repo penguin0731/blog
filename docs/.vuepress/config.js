@@ -246,6 +246,7 @@ module.exports = {
             { title: "Java面向对象的三大特征", path: "Java/Java面向对象的三大特征" },
             { title: "接口", path: "Java/接口" },
             { title: "内部类", path: "Java/内部类" },
+            { title: "枚举", path: "Java/枚举" },
           ],
         },
       ]
