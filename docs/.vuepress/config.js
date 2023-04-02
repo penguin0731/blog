@@ -38,7 +38,7 @@ module.exports = {
         {
           title: "HTML",
           collapsable: true,
-          children: [{ title: "盒模型", path: "HTML/盒模型" }],
+          children: [{ title: "语义化的理解", path: "HTML/语义化的理解" }],
         },
         {
           title: "CSS",
