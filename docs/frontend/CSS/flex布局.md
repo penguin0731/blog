@@ -32,19 +32,19 @@ flex-direction属性决定主轴的方向（即项目的排列方向）
 
 `row`：主轴方向从左到右
 
-<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com//img/202208160930382.png" alt="image-20220816092948147" style="zoom:67%;" />
+<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com//img/202208160930382.png" alt="image-20220816092948147"  />
 
 `row-reverse`：主轴方向从右到左
 
-<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com//img/202208160932306.png" alt="image-20220816093217233" style="zoom:67%;" />
+<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com//img/202208160932306.png" alt="image-20220816093217233"  />
 
 `column`：主轴方向从上到下
 
-<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com//img/202208161006975.png" alt="image-20220816100652793" style="zoom:67%;" />
+<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com//img/202208161006975.png" alt="image-20220816100652793"  />
 
 `column-reverse`：主轴方向从下到上
 
-<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com//img/202208161007641.png" alt="image-20220816100739571" style="zoom:67%;" />
+<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com//img/202208161007641.png" alt="image-20220816100739571"  />
 
 ### flex-wrap
 
@@ -72,23 +72,23 @@ justify-content属性定义了项目在**主轴**上的对齐方式
 
 `flex-start`：项目位于容器的开头
 
-<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com//img/202208161010907.png" alt="image-20220816101018828" style="zoom:67%;" />
+<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com//img/202208161010907.png" alt="image-20220816101018828"  />
 
 `flex-end`：项目位于容器的结尾
 
-<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com//img/202208161011804.png" alt="image-20220816101103738" style="zoom:67%;" />
+<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com//img/202208161011804.png" alt="image-20220816101103738"  />
 
 `center`：项目位于容器的中央
 
-<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com//img/202208161011356.png" alt="image-20220816101134295" style="zoom:67%;" />
+<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com//img/202208161011356.png" alt="image-20220816101134295"  />
 
 `space-between`：平分容器空间，首尾项目位于容器两侧
 
-<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com//img/202208161012723.png" alt="image-20220816101217660" style="zoom:67%;" />
+<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com//img/202208161012723.png" alt="image-20220816101217660"  />
 
 `space-around`：平分容器空间，首尾项目与容器的距离，等于其他相邻容器距离的一半
 
-<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com//img/202208161013706.png" alt="image-20220816101331641" style="zoom:67%;" />
+<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com//img/202208161013706.png" alt="image-20220816101331641"  />
 
 ### align-items
 
@@ -98,19 +98,19 @@ align-items属性定义项目在**交叉轴**上如何对齐
 
 `flex-start`：项目位于容器的开头
 
-<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com//img/202208161015731.png" alt="image-20220816101503669" style="zoom:67%;" />
+<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com//img/202208161015731.png" alt="image-20220816101503669"  />
 
 `flex-end`：项目位于容器的结尾
 
-<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com//img/202208161015824.png" alt="image-20220816101553741" style="zoom:67%;" />
+<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com//img/202208161015824.png" alt="image-20220816101553741"  />
 
 `center`：项目位于容器的中央
 
-<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com//img/202208161016320.png" alt="image-20220816101628252" style="zoom:67%;" />
+<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com//img/202208161016320.png" alt="image-20220816101628252"  />
 
 `baseline`：根据项目的第一行文字的基线对齐
 
-<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com//img/202208161020617.png" alt="image-20220816102026502" style="zoom:67%;" />
+<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com//img/202208161020617.png" alt="image-20220816102026502"  />
 
 `stretch`：项目将拉伸覆盖整个容器
 
@@ -118,7 +118,7 @@ align-items属性定义项目在**交叉轴**上如何对齐
 要使stretch生效，项目在交叉轴上不能有固定尺寸
 :::
 
-<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com//img/202208161021609.png" alt="image-20220816102147554" style="zoom:67%;" />
+<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com//img/202208161021609.png" alt="image-20220816102147554"  />
 
 ### align-content
 

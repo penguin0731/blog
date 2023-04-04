@@ -2,7 +2,7 @@
 
 loader的本质是一个函数，它的作用是将一个源码字符串转换成另一个源码字符串。
 
-<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/image-20220707155032800.png" alt="image-20220707155032800" style="zoom:67%;" />
+<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/image-20220707155032800.png" alt="image-20220707155032800"  />
 
 ## 执行时机
 

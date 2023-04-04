@@ -84,11 +84,11 @@ export default {
 
 假设长列表的每项高度固定`52px`，可视区域能够展示10条数据，那么可视区域的高度为`520px`。在首次渲染的时候，我们只需要渲染10条数据即可。
 
-<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/image-20220624214803626.png" alt="image-20220624214803626" style="zoom: 67%;" />
+<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/image-20220624214803626.png" alt="image-20220624214803626"  />
 
 假设页面发生滚动，滚动条距离顶部`200px`，我们可以根据列表项的高度计算得到可视区域的起始数据索引为`200 / 52 = 3.846`，即使只有一半在可视区域也同样需要渲染，但由于是起始数据，并且索引必须是整数，因此我们需要对结果进行向下取整，最终得到可视区域的起始数据索引实际为3。同理，通过计算得出可视区域的结束数据索引实际为14，注意结束数据索引是向上取整。这样一来我们就可以通过这两个索引将长列表切割得到可视区域的列表数据。
 
-<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/image-20220624224405042.png" alt="image-20220624224405042" style="zoom:80%;" />
+<img src="https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/image-20220624224405042.png" alt="image-20220624224405042"  />
 
 整理一下上述的分析，我们需要得到的数据如下：
 
