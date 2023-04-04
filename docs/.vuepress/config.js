@@ -38,7 +38,10 @@ module.exports = {
         {
           title: "HTML",
           collapsable: true,
-          children: [{ title: "语义化的理解", path: "HTML/语义化的理解" }],
+          children: [
+            { title: "语义化的理解", path: "HTML/语义化的理解" },
+            { title: "src和href的区别", path: "HTML/src和href的区别" },
+          ],
         },
         {
           title: "CSS",
