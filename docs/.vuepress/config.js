@@ -265,6 +265,7 @@ module.exports = {
   plugins: [
     "@vuepress/active-header-links",
     "@vuepress/back-to-top",
+    "vuepress-plugin-medium-zoom",
     [
       "@vssue/vuepress-plugin-vssue",
       {
