@@ -20,7 +20,7 @@ element {
 
 ## 基本概念
 
-采用flex布局的元素，称为flex容器（flex container），简称"容器"。它的所有子元素自动成为容器成员，称为flex项目（flex item），简称"项目"。
+采用flex布局的元素，称为flex容器（flex container），简称"容器"。它的直接子元素自动成为容器成员，称为flex项目（flex item），简称"项目"。
 
 容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。
 
