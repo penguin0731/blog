@@ -5,7 +5,9 @@ sidebarDepth: 2
 
 grid 布局，又称为网格布局。
 
+采用 grid 布局的元素，我们成为 grid 容器，简称“容器”。它的直接子元素则称为 grid 项目，简称"项目"。
 
+grid 布局是二维布局，它有“行”和“列”的概念，形成一个个的网格，项目占据多少个网格，占据哪些位置的网格都可以由我们定义。
 
 ## 容器的属性
 
@@ -83,11 +85,15 @@ grid-template-columns 属性设置的是网格容器的列宽，grid-template-ro
 
 ![image-20230404094833656](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304041440148.png)
 
-### column-gap 属性和 row-gap属性
+
+
+### column-gap 属性、row-gap 属性和 gap 属性
 
 column-gap 属性控制列间距，row-gap 属性控制行间距。
 
-```css {15,17}
+gap 属性是这两个属性的简写，`gap: <row-gap> <column-gap>`
+
+```css {15,17,19}
 .wrapper {
   width: 860px;
   height: 500px;
@@ -102,15 +108,29 @@ column-gap 属性控制列间距，row-gap 属性控制行间距。
   /* 设置行高，行数为1，超出的行数将平分剩余容器的高度 */
   grid-template-rows: 200px;
   /* 设置列间距 */
-  column-gap: 20px;
+  /* column-gap: 20px; */
   /* 设置行间距 */
-  row-gap: 5px;
+  /* row-gap: 5px; */
+  /* gap: <row-gap> <column-gap> */
+  gap: 5px 20px;
 }
 ```
 
 效果如下：
 
 ![image-20230404101126402](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304041440983.png)
+
+
+
+::: warning grid-gap 属性和 gap 属性有什么区别？ 
+
+grid-gap 属性是 grid 布局特有的属性，而 gap 属性是一个通用属性，适用于任何布局模式，如 grid、flex 和多列布局等。
+
+推荐使用 gap 属性，因为 gap 属性比较通用，在多个布局模式之间切换也更加方便。
+
+:::
+
+
 
 ### repeat() 函数
 
@@ -143,7 +163,7 @@ repeat() 函数可以简化 grid-template-columns 属性和grid-template-rows �
 
 ### auto-fill 关键字
 
-auto-fill 关键字表示自动填充，让一列（或一行）尽可能的容纳更多的项目。
+auto-fill 关键字表示自动填充，让一行（或一列）尽可能的容纳更多的项目。
 
 ```css {15}
 .wrapper {
@@ -173,6 +193,243 @@ auto-fill 关键字表示自动填充，让一列（或一行）尽可能的容�
 效果如下：
 
 ![](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304041458696.gif)
+
+
+
+### fr 关键字
+
+fr 关键字是 grid 布局中的一种长度单位，表示网格容器中剩余空间的一部分。
+
+一般情况下，`1fr`表示“剩余空间的100%”，`.25fr`表示“剩余空间的25%”。当 fr 大于1时，则会重新计算分配比例。
+
+```css {17}
+.wrapper {
+  width: 70%;
+  height: 500px;
+  margin: 100px auto;
+  border: 2px solid black;
+  padding: 10px;
+
+  /* 设置元素为网格容器 */
+  display: grid;
+  /* 设置列宽，列数为3，超出的元素会自动换行 */
+  /* grid-template-columns: 200px 200px 200px; */
+  /* 使用repeat()函数简化重复值 */
+  /* grid-template-columns: repeat(3, 200px); */
+  /* 使用auto-fill关键字，列数不固定，将根据容器的宽度自动填充 */
+  /* grid-template-columns: repeat(auto-fill, 200px); */
+  /* 设置第一列的列宽为200px，设置第二第三列均为剩余空间的40% */
+  grid-template-columns: 200px repeat(2, .4fr);
+  /* 设置行高，行数为1，超出的元素将平分剩余容器的高度 */
+  grid-template-rows: 200px;
+  /* 设置列间距 */
+  /* column-gap: 20px; */
+  /* 设置行间距 */
+  /* row-gap: 5px; */
+  /* gap: <row-gap> <column-gap> */
+  gap: 5px 20px;
+}
+```
+
+效果如下：
+
+![grid布局-fr](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304041635834.gif)
+
+
+
+### grid-template-area 属性
+
+grid-template-area 属性用于定义区域，一个区域由一个或多个网格组成。
+
+这个属性一般与项目属性中的 grid-area 属性配合使用。
+
+```css
+.wrapper {
+  width: 70%;
+  height: 500px;
+  margin: 100px auto;
+  border: 2px solid black;
+  padding: 10px;
+
+  /* 设置元素为网格容器 */
+  display: grid;
+  /* 设置第一列的列宽为200px，设置第二第三列均为剩余空间的40% */
+  grid-template-columns: repeat(4, 1fr);
+  /* 设置行高，行数为1，超出的元素将平分剩余容器的高度 */
+  grid-template-rows: repeat(4, 1fr);
+  /* 行列间距10px */
+  gap: 10px;
+  /* 定义区域 */
+  grid-template-areas: 
+      "one  two  two  three"
+      "four two  two  three"
+      "four five five five"
+      "six  six  six  .";
+}
+
+.one {
+  background-color: #19CAAD;
+  /* 使用已经定义好的区域 */
+  grid-area: one;
+}
+
+.two {
+  background-color: #8CC7B5;
+  grid-area: two;
+}
+
+.three {
+  background-color: #D1BA74;
+  grid-area: three;
+}
+
+.four {
+  background-color: #BEE7E9;
+  grid-area: four;
+}
+
+.five {
+  background-color: #E6CEAC;
+  grid-area: five;
+}
+
+.six {
+  background-color: #ECAD9E;
+  grid-area: six;
+}
+```
+
+上述定义区域的代码中，`.`符号表示该单元格没有项目占用，即该单元格为空。
+
+效果如下：
+
+![image-20230406103628132](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304061036232.png)
+
+### grid-auto-columns 属性和 grid-auto-rows 属性
+
+在介绍这两个属性前，先引入两个概念，**显式网格**和**隐式网格**。
+
+显式网格指的是我们在 grid-template-rows 属性和 grid-template-columns 属性中定义的行和列。如果项目的数量超过了我们定义的网格，或者是我们在定义好的网格之外放置来其他项目，那么网格容器会自动创建隐式网格来容纳剩余的项目。
+
+gird-auto-rows 属性和 grid-auto-columns 属性就是用于定义隐式网格的行高和列宽的。
+
+```css
+.wrapper {
+  width: 70%;
+  /* height: 500px; */
+  margin: 100px auto;
+  border: 2px solid black;
+  padding: 10px;
+
+  /* 设置元素为网格容器 */
+  display: grid;
+  /* 设置列宽，列数为3，超出的元素会自动换行 */
+  grid-template-columns: 200px 200px 200px;
+  /* 设置行高，行数为1 */
+  grid-template-rows: 100px;
+  /* 行列间距为10px */
+  gap: 10px;
+  /* 超出第一行的元素，将占用50px的行高 */
+  grid-auto-rows: 50px;
+}
+
+.one {
+  background-color: #19CAAD;
+}
+
+.two {
+  background-color: #8CC7B5;
+}
+
+.three {
+  background-color: #D1BA74;
+}
+
+.four {
+  background-color: #BEE7E9;
+}
+
+.five {
+  background-color: #E6CEAC;
+}
+
+.six {
+  background-color: #ECAD9E;
+}
+```
+
+效果如下：
+
+![image-20230406175133734](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304061751859.png)
+
+一般情况下，grid-auto-columns 属性相对 grid-auto-rows 属性来说使用的较少，但当我们指定一个项目占据新的一列时，或许会用的上。
+
+```css
+.wrapper {
+  width: 70%;
+  /* height: 500px; */
+  margin: 100px auto;
+  border: 2px solid black;
+  padding: 10px;
+
+  /* 设置元素为网格容器 */
+  display: grid;
+  /* 设置列宽，列数为3，超出的元素会自动换行 */
+  grid-template-columns: 200px 200px 200px;
+  /* 设置行高，行数为1 */
+  grid-template-rows: 100px;
+  /* 行列间距为10px */
+  gap: 10px;
+  /* 超出第一行的元素，将占用50px的行高 */
+  grid-auto-rows: 50px;
+  /* 超出第三列的元素，将占用100px的列宽 */
+  grid-auto-columns: 100px;
+}
+
+.one {
+  background-color: #19CAAD;
+}
+
+.two {
+  background-color: #8CC7B5;
+}
+
+.three {
+  background-color: #D1BA74;
+}
+
+.four {
+  background-color: #BEE7E9;
+  /* 指定该项目占据的列的起始位置 */
+  grid-column-start: 4;
+  /* 指定该项目占据的列的结束位置 */
+  grid-column-end: 5;
+}
+
+.five {
+  background-color: #E6CEAC;
+}
+
+.six {
+  background-color: #ECAD9E;
+}
+```
+
+效果如下：
+
+![image-20230406175852538](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304061758609.png)
+
+
+
+
+
+## 项目属性
+
+### grid-area 属性
+
+
+
+
 
 
 
