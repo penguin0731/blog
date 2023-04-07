@@ -29,21 +29,21 @@ grid-template-columns 属性设置的是网格容器的列宽，grid-template-ro
 
 ```html
 <div class="wrapper">
-  <div class="one"></div>
-  <div class="two"></div>
-  <div class="three"></div>
-  <div class="four"></div>
-  <div class="five"></div>
-  <div class="six"></div>
-  <div class="one"></div>
-  <div class="two"></div>
+  <div class="item one">One</div>
+  <div class="item two">Two</div>
+  <div class="item three">Three</div>
+  <div class="item four">Four</div>
+  <div class="item five">Five</div>
+  <div class="item six">Six</div>
+  <div class="item seven">Seven</div>
+  <div class="item eight">Eight</div>
 </div>
 ```
 
 ```css {11,13}
 .wrapper {
-  width: 860px;
-  height: 500px;
+  width: 70%;
+  height: 300px;
   margin: 100px auto;
   border: 2px solid black;
   padding: 10px;
@@ -52,8 +52,16 @@ grid-template-columns 属性设置的是网格容器的列宽，grid-template-ro
   display: grid;
   /* 设置列宽，列数为3，超出的元素会自动换行 */
   grid-template-columns: 200px 200px 200px;
-  /* 设置行高，行数为1，超出的行数将平分剩余容器的高度 */
+  /* 设置行高，行数为1，超出的元素将平分剩余容器的高度 */
   grid-template-rows: 200px;
+}
+
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 200%;
+  color: #fff;
 }
 
 .one {
@@ -79,11 +87,19 @@ grid-template-columns 属性设置的是网格容器的列宽，grid-template-ro
 .six {
   background-color: #ECAD9E;
 }
+
+.seven {
+  background-color: #BEEDC7;
+}
+
+.eight {
+  background-color: #F4606C;
+}
 ```
 
 效果如下：
 
-![image-20230404094833656](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304041440148.png)
+![image-20230407111449193](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304071114302.png)
 
 
 
@@ -95,8 +111,8 @@ gap 属性是这两个属性的简写，`gap: <row-gap> <column-gap>`
 
 ```css {15,17,19}
 .wrapper {
-  width: 860px;
-  height: 500px;
+  width: 70%;
+  height: 300px;
   margin: 100px auto;
   border: 2px solid black;
   padding: 10px;
@@ -105,20 +121,20 @@ gap 属性是这两个属性的简写，`gap: <row-gap> <column-gap>`
   display: grid;
   /* 设置列宽，列数为3，超出的元素会自动换行 */
   grid-template-columns: 200px 200px 200px;
-  /* 设置行高，行数为1，超出的行数将平分剩余容器的高度 */
-  grid-template-rows: 200px;
+  /* 设置行高，行数为1，超出的元素将平分剩余容器的高度 */
+  grid-template-rows: 100px;
   /* 设置列间距 */
-  /* column-gap: 20px; */
+  /* column-gap: 10px; */
   /* 设置行间距 */
-  /* row-gap: 5px; */
-  /* gap: <row-gap> <column-gap> */
-  gap: 5px 20px;
+  /* row-gap: 20px; */
+  /* 设置行间距20px，列间距10px */
+  gap: 20px 10px;
 }
 ```
 
 效果如下：
 
-![image-20230404101126402](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304041440983.png)
+![image-20230407111752412](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304071117461.png)
 
 
 
@@ -138,26 +154,21 @@ repeat() 函数可以简化 grid-template-columns 属性和grid-template-rows �
 
 该函数有两个参数，第一个参数是重复的列数（或行数），第二个参数是重复值。
 
-```css {13}
+```css {11}
 .wrapper {
-  width: 860px;
-  height: 500px;
+  width: 70%;
+  height: 300px;
   margin: 100px auto;
   border: 2px solid black;
   padding: 10px;
 
   /* 设置元素为网格容器 */
   display: grid;
-  /* 设置列宽，列数为3，超出的元素会自动换行 */
-  /* grid-template-columns: 200px 200px 200px; */
   /* 使用repeat()函数简化重复值 */
   grid-template-columns: repeat(3, 200px);
-  /* 设置行高，行数为1，超出的行数将平分剩余容器的高度 */
-  grid-template-rows: 200px;
-  /* 设置列间距 */
-  column-gap: 20px;
-  /* 设置行间距 */
-  row-gap: 5px;
+  grid-template-rows: 100px;
+  /* 设置行间距20px，列间距10px */
+  gap: 20px 10px;
 }
 ```
 
@@ -165,34 +176,28 @@ repeat() 函数可以简化 grid-template-columns 属性和grid-template-rows �
 
 auto-fill 关键字表示自动填充，让一行（或一列）尽可能的容纳更多的项目。
 
-```css {15}
+```css {11}
 .wrapper {
   width: 70%;
-  height: 500px;
+  height: 300px;
   margin: 100px auto;
   border: 2px solid black;
   padding: 10px;
 
   /* 设置元素为网格容器 */
   display: grid;
-  /* 设置列宽，列数为3，超出的元素会自动换行 */
-  /* grid-template-columns: 200px 200px 200px; */
-  /* 使用repeat()函数简化重复值 */
-  /* grid-template-columns: repeat(3, 200px); */
   /* 使用auto-fill关键字，列数不固定，将根据容器的宽度自动填充 */
   grid-template-columns: repeat(auto-fill, 200px);
   /* 设置行高，行数为1，超出的元素将平分剩余容器的高度 */
   grid-template-rows: 200px;
-  /* 设置列间距 */
-  column-gap: 20px;
-  /* 设置行间距 */
-  row-gap: 5px;
+  /* 设置行间距20px，列间距10px */
+  gap: 20px 10px;
 }
 ```
 
 效果如下：
 
-![](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304041458696.gif)
+![grid布局-auto-fill](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304071436436.gif)
 
 
 
@@ -202,38 +207,28 @@ fr 关键字是 grid 布局中的一种长度单位，表示网格容器中剩�
 
 一般情况下，`1fr`表示“剩余空间的100%”，`.25fr`表示“剩余空间的25%”。当 fr 大于1时，则会重新计算分配比例。
 
-```css {17}
+```css {11}
 .wrapper {
   width: 70%;
-  height: 500px;
+  height: 300px;
   margin: 100px auto;
   border: 2px solid black;
   padding: 10px;
 
   /* 设置元素为网格容器 */
   display: grid;
-  /* 设置列宽，列数为3，超出的元素会自动换行 */
-  /* grid-template-columns: 200px 200px 200px; */
-  /* 使用repeat()函数简化重复值 */
-  /* grid-template-columns: repeat(3, 200px); */
-  /* 使用auto-fill关键字，列数不固定，将根据容器的宽度自动填充 */
-  /* grid-template-columns: repeat(auto-fill, 200px); */
   /* 设置第一列的列宽为200px，设置第二第三列均为剩余空间的40% */
   grid-template-columns: 200px repeat(2, .4fr);
   /* 设置行高，行数为1，超出的元素将平分剩余容器的高度 */
   grid-template-rows: 200px;
-  /* 设置列间距 */
-  /* column-gap: 20px; */
-  /* 设置行间距 */
-  /* row-gap: 5px; */
-  /* gap: <row-gap> <column-gap> */
-  gap: 5px 20px;
+  /* 设置行间距20px，列间距10px */
+  gap: 20px 10px;
 }
 ```
 
 效果如下：
 
-![grid布局-fr](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304041635834.gif)
+![grid布局-fr](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304071437426.gif)
 
 
 
@@ -243,7 +238,7 @@ grid-template-area 属性用于定义区域，一个区域由一个或多个网�
 
 这个属性一般与项目属性中的 grid-area 属性配合使用。
 
-```css
+```css {17-21}
 .wrapper {
   width: 70%;
   height: 500px;
@@ -254,22 +249,30 @@ grid-template-area 属性用于定义区域，一个区域由一个或多个网�
   /* 设置元素为网格容器 */
   display: grid;
   /* 设置第一列的列宽为200px，设置第二第三列均为剩余空间的40% */
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   /* 设置行高，行数为1，超出的元素将平分剩余容器的高度 */
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
   /* 行列间距10px */
   gap: 10px;
   /* 定义区域 */
   grid-template-areas: 
-      "one  two  two  three"
-      "four two  two  three"
-      "four five five five"
-      "six  six  six  .";
+      "one   two   two   three four"
+      "five  two   two   three four"
+      "five  six   seven three four"
+      ".     six   seven nine  four"
+      "eight eight seven nine  four";
+}
+
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 200%;
+  color: #fff;
 }
 
 .one {
   background-color: #19CAAD;
-  /* 使用已经定义好的区域 */
   grid-area: one;
 }
 
@@ -297,13 +300,28 @@ grid-template-area 属性用于定义区域，一个区域由一个或多个网�
   background-color: #ECAD9E;
   grid-area: six;
 }
+
+.seven {
+  background-color: #BEEDC7;
+  grid-area: seven;
+}
+
+.eight {
+  background-color: #F4606C;
+  grid-area: eight;
+}
+
+.nine {
+  background-color: #A0EEE1;
+  grid-area: nine;
+}
 ```
 
 上述定义区域的代码中，`.`符号表示该单元格没有项目占用，即该单元格为空。
 
 效果如下：
 
-![image-20230406103628132](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304061036232.png)
+![image-20230407145152810](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304071451869.png)
 
 ### grid-auto-columns 属性和 grid-auto-rows 属性
 
@@ -313,10 +331,9 @@ grid-template-area 属性用于定义区域，一个区域由一个或多个网�
 
 gird-auto-rows 属性和 grid-auto-columns 属性就是用于定义隐式网格的行高和列宽的。
 
-```css
+```css {17}
 .wrapper {
   width: 70%;
-  /* height: 500px; */
   margin: 100px auto;
   border: 2px solid black;
   padding: 10px;
@@ -332,42 +349,17 @@ gird-auto-rows 属性和 grid-auto-columns 属性就是用于定义隐式网格�
   /* 超出第一行的元素，将占用50px的行高 */
   grid-auto-rows: 50px;
 }
-
-.one {
-  background-color: #19CAAD;
-}
-
-.two {
-  background-color: #8CC7B5;
-}
-
-.three {
-  background-color: #D1BA74;
-}
-
-.four {
-  background-color: #BEE7E9;
-}
-
-.five {
-  background-color: #E6CEAC;
-}
-
-.six {
-  background-color: #ECAD9E;
-}
 ```
 
 效果如下：
 
-![image-20230406175133734](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304061751859.png)
+![image-20230407145554618](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304071455692.png)
 
 一般情况下，grid-auto-columns 属性相对 grid-auto-rows 属性来说使用的较少，但当我们指定一个项目占据新的一列时，或许会用的上。
 
-```css
+```css {17,19}
 .wrapper {
   width: 70%;
-  /* height: 500px; */
   margin: 100px auto;
   border: 2px solid black;
   padding: 10px;
@@ -384,6 +376,14 @@ gird-auto-rows 属性和 grid-auto-columns 属性就是用于定义隐式网格�
   grid-auto-rows: 50px;
   /* 超出第三列的元素，将占用100px的列宽 */
   grid-auto-columns: 100px;
+}
+
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 200%;
+  color: #fff;
 }
 
 .one {
@@ -413,11 +413,27 @@ gird-auto-rows 属性和 grid-auto-columns 属性就是用于定义隐式网格�
 .six {
   background-color: #ECAD9E;
 }
+
+.seven {
+  background-color: #BEEDC7;
+}
+
+.eight {
+  background-color: #F4606C;
+}
+
+.nine {
+  background-color: #A0EEE1;
+}
 ```
 
 效果如下：
 
-![image-20230406175852538](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304061758609.png)
+![image-20230407145440654](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304071455276.png)
+
+### grid-auto-flow 属性
+
+
 
 
 
