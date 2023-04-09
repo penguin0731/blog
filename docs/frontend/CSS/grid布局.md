@@ -5,7 +5,7 @@ sidebarDepth: 2
 
 grid 布局，又称为网格布局。
 
-采用 grid 布局的元素，我们成为 grid 容器，简称“容器”。它的直接子元素则称为 grid 项目，简称"项目"。
+采用 grid 布局的元素，我们称为 grid 容器，简称“容器”。它的直接子元素则称为 grid 项目，简称"项目"。
 
 grid 布局是二维布局，它有“行”和“列”的概念，形成一个个的网格，项目占据多少个网格，占据哪些位置的网格都可以由我们定义。
 
@@ -433,9 +433,132 @@ gird-auto-rows 属性和 grid-auto-columns 属性就是用于定义隐式网格�
 
 ### grid-auto-flow 属性
 
+grid-auto-flow 属性控制着网格的自动布局算法，默认值是`row`，即**先行后列**。
 
+```css {17}
+.wrapper {
+  width: 70%;
+  height: 500px;
+  margin: 100px auto;
+  border: 2px solid black;
+  padding: 10px;
 
+  /* 设置元素为网格容器 */
+  display: grid;
+  /* 设置列宽，列数为3，超出的元素会自动换行 */
+  grid-template-columns: 200px 300px 200px;
+  /* 行列间距10px */
+  gap: 10px;
+  /* 设置隐式网格的行高为100px */
+  grid-auto-rows: 100px;
+  /* 默认先行后列 */
+  grid-auto-flow: row;
+}
 
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 200%;
+  color: #fff;
+}
+
+.one {
+  background-color: #19CAAD;
+}
+
+.two {
+  background-color: #8CC7B5;
+}
+
+.three {
+  background-color: #D1BA74;
+}
+
+.four {
+  background-color: #BEE7E9;
+}
+
+.five {
+  background-color: #E6CEAC;
+}
+
+.six {
+  background-color: #ECAD9E;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.seven {
+  background-color: #BEEDC7;
+}
+
+.eight {
+  background-color: #F4606C;
+}
+
+.nine {
+  background-color: #A0EEE1;
+}
+```
+
+效果如下：
+
+![image-20230407160751441](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304071607480.png)
+
+我们可以看到第二行的最后有一块空白，这是因为第六个项目的长度大于空白的长度，因此第六个项目被挤到了下一行。在实际的场景中，我们也许需要尽可能的填满网格，这个时候我们可以将值设成`row dense`，表示网格布局按先行后列的布局算法自动排列，并且当后面有较小的元素时，会试图去填满前面的空白，当然这也会打乱项目原来的顺序。
+
+```css {17}
+.wrapper {
+  width: 70%;
+  height: 500px;
+  margin: 100px auto;
+  border: 2px solid black;
+  padding: 10px;
+
+  /* 设置元素为网格容器 */
+  display: grid;
+  /* 设置列宽，列数为3，超出的元素会自动换行 */
+  grid-template-columns: 200px 300px 200px;
+  /* 行列间距10px */
+  gap: 10px;
+  /* 设置隐式网格的行高为100px */
+  grid-auto-rows: 100px;
+  /* 先行后列，尽可能填满网格 */
+  grid-auto-flow: row dense;
+}
+```
+
+效果如下：
+
+![image-20230407164955637](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304071649698.png)
+
+同样的，也可以将值设成`column`，即**先列后行**。
+
+```css
+.wrapper {
+  width: 70%;
+  height: 300px;
+  margin: 100px auto;
+  border: 2px solid black;
+  padding: 10px;
+
+  /* 设置元素为网格容器 */
+  display: grid;
+  /* 设置行高100px，行数为2 */
+  grid-template-rows: 100px 100px;
+  /* 设置隐式网格的列宽为150px */
+  grid-auto-columns: 150px;
+  /* 行列间距10px */
+  gap: 10px;
+  /* 先列后行 */
+  grid-auto-flow: column;
+}
+```
+
+效果如下：
+
+![image-20230407170418075](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304071704143.png)
 
 
 
