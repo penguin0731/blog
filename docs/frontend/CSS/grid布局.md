@@ -535,7 +535,7 @@ grid-auto-flow 属性控制着网格的自动布局算法，默认值是`row`，
 
 同样的，也可以将值设成`column`，即**先列后行**。
 
-```css
+```css {17}
 .wrapper {
   width: 70%;
   height: 300px;
@@ -559,6 +559,128 @@ grid-auto-flow 属性控制着网格的自动布局算法，默认值是`row`，
 效果如下：
 
 ![image-20230407170418075](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304071704143.png)
+
+### justify-items 属性和 align-items 属性
+
+justify-items 属性控制网格中内容的水平位置，align-items 属性控制网格中内容的垂直位置。
+
+这两个属性的取值相同：
+
+```css
+justify-items: start | center | end | stretch;
+align-items: start | center | end | stretch;
+```
+
+以 justify-items 属性为例：
+
+```css {16}
+.wrapper {
+  width: 70%;
+  height: 300px;
+  margin: 100px auto;
+  border: 2px solid black;
+  padding: 10px;
+
+  /* 设置元素为网格容器 */
+  display: grid;
+  /* 使用repeat()函数简化重复值 */
+  grid-template-columns: repeat(3, 200px);
+  /* 设置行高，行数为1，超出的元素将平分剩余容器的高度 */
+  grid-template-rows: 100px;
+  /* 行间距20px，列间距10px */
+  gap: 20px 10px;
+  justify-items: start;
+}
+```
+
+效果如下：
+
+- start：对齐网格起始位置边缘
+
+![image-20230410145631872](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304101456016.png)
+
+- center：网格内容居中
+
+![image-20230410145911087](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304101459143.png)
+
+- end：对齐网格结束位置边缘
+
+![image-20230410145946943](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304101459987.png)
+
+- stretch：拉伸，占满网格的整个宽度（默认值）
+
+![image-20230410150020408](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304101500452.png)
+
+
+
+### justify-content 属性和 align-content 属性
+
+justify-content 属性控制整个内容区域在 grid 容器中的水平位置，align-content 属性控制整个内容区域在 grid 容器中的垂直位置。
+
+这两个属性的取值相同：
+
+```css
+justify-content: start | center | end | stretch | space-around | space-between | space-evenly;
+align-content: start | center | end | stretch | space-around | space-between | space-evenly;
+```
+
+以 justify-items 属性为例：
+
+```css {14}
+.wrapper {
+  width: 70%;
+  height: 300px;
+  margin: 100px auto;
+  border: 2px solid black;
+  padding: 10px;
+
+  /* 设置元素为网格容器 */
+  display: grid;
+  /* 使用repeat()函数简化重复值 */
+  grid-template-columns: repeat(3, 200px);
+  /* 设置行高，行数为1，超出的元素将平分剩余容器的高度 */
+  grid-template-rows: 100px;
+  justify-content: start;
+}
+```
+
+效果如下：
+
+- start：内容区域对齐容器的起始位置边缘
+
+![image-20230410151053681](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304101510725.png)
+
+- center：内容区域在容器的居中位置
+
+![image-20230410151124283](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304101511329.png)
+
+- end：内容区域对齐容器的结束位置边缘
+
+![image-20230410151148002](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304101511043.png)
+
+- stretch：项目没有指定大小时，拉伸占满整个网格
+
+![](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304101512259.png)
+
+- space-around：内容区域与容器两边的间隔相等，并且这个间隔是项目之间原间隔的二分之一
+
+![image-20230410151522254](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304101515327.png)
+
+- space-between：内容区域与容器两边没有间隔，项目之间原间隔相等
+
+![image-20230410151934234](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304101519284.png)
+
+- space-evenly：内容区域与容器两边的间隔，和项目之间的原间隔相等
+
+![image-20230410152203473](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304101522519.png)
+
+::: warning 注意
+
+项目之间的间隔会受 gap 属性设置的行高或列宽影响。
+
+项目的总间隔 = 属性值（space-around、space-between、space-evenly）分配的原间隔 + gap属性的行高或列宽
+
+:::
 
 
 
