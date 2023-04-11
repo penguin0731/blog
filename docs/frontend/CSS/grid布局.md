@@ -688,7 +688,58 @@ align-content: start | center | end | stretch | space-around | space-between | s
 
 ### grid-area 属性
 
+grid-area 属性指定项目被放在哪个区域，上面的 [grid-template-area](#grid-template-area-属性) 属性已经介绍过，不在赘述。
 
+### grid-column 属性和 grid-row 属性
+
+grid-column 属性控制的是网格列的起始位置和结束位置，它是 grid-column-start 属性和 grid-column-end 属性的缩写。
+
+如果指定了两个值，那么`/`符号前的值就被指定为 grid-column-start，`/`符号后的值就被指定为 grid-column-end。
+
+grid-row 属性同理。
+
+下面以 grid-column 属性为例：
+
+```css {21}
+.wrapper {
+  width: 70%;
+  height: 300px;
+  margin: 100px auto;
+  border: 2px solid black;
+  padding: 10px;
+
+  /* 设置元素为网格容器 */
+  display: grid;
+  /* 使用repeat()函数简化重复值 */
+  grid-template-columns: repeat(3, 200px);
+  /* 设置行高，行数为1，超出的元素将平分剩余容器的高度 */
+  grid-template-rows: 100px;
+  /* 行列间距10px */
+  gap: 10px;
+}
+
+.two {
+  background-color: #8CC7B5;
+  /* two元素的列从第二列开始到第四列结束 */
+  grid-column: 2 / 4;
+}
+```
+
+效果如下：
+
+![image-20230411165601600](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/202304111656636.png)
+
+
+
+也可以通过 span 关键字指定网格列的跨度，达到一样的效果。
+
+```css {4}
+.two {
+  background-color: #8CC7B5;
+  /* 指定two元素的列跨度占两列 */
+  grid-column: span 2;
+}
+```
 
 
 
@@ -696,4 +747,4 @@ align-content: start | center | end | stretch | space-around | space-between | s
 
 ## grid布局与flex布局的区别
 
-grid 布局是二维布局，可以控制多行多列。而flex 布局是一维布局，它只能控制一行或者一列。
+grid 布局是二维布局，可以控制多行多列。而 flex 布局是一维布局，它只能控制一行或者一列。
