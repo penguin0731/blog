@@ -48,6 +48,7 @@ module.exports = {
           collapsable: true,
           children: [
             { title: "Selectors", path: "CSS/Selectors" },
+            { title: "盒模型", path: "CSS/盒模型" },
             {
               title: "圣杯布局与双飞翼布局",
               path: "CSS/圣杯布局与双飞翼布局",
