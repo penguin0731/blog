@@ -23,7 +23,7 @@
 添加配置文件后，原本已存在项目的文件不会自动格式化，需要自行批量格式化一次
 可以执行以下命令，文件后缀可根据需要调整
 
-```
+```shell
 npx prettier --write --config .prettierrc "src/*/.{js,json,vue,scss,css,md}"
 ```
 
