@@ -227,10 +227,6 @@ module.exports = {
               path: "Docker/介绍"
             },
             {
-              title: "搭建运行Docker的环境",
-              path: "Docker/搭建运行Docker的环境"
-            },
-            {
               title: "操作镜像",
               path: "Docker/操作镜像"
             },
