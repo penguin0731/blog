@@ -66,7 +66,7 @@ onMounted(() => {
 </script>
 ```
 
-defineProps 和 defineEmits API 被称为**宏**，它们不需要导入，并且会跟`<script setup>`一样在编译过程就会被处理掉。
+defineProps 和 defineEmits API 被称为**编译器宏**，它们不需要导入，并且会跟`<script setup>`一样在编译过程就会被处理掉。
 
 ### 使用 slots 和 attrs
 
@@ -85,4 +85,22 @@ const attrs = useAttrs();
 
 ## defineExpose()
 
-通常情况下，我们是非常不建议通过 $ref 去
+通常情况下，我们是非常不建议通过 ref 去访问组件属性或方法，因为这会使得父子组件的耦合度增加，为了避免这种情况，使用了`<script setup>`的组件是**默认私有**的，父组件无法访问到子组件中的任何属性和方法，除非子组件通过 defineExpose API 暴露出来。
+
+```vue
+<script setup>
+import { ref } from 'vue';
+
+const foo = ref(1);
+
+function bar() {
+  console.log('bar');
+}
+
+defineExpose({
+  foo,
+  bar
+})
+</script>
+```
+
