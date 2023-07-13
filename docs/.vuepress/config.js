@@ -223,6 +223,14 @@ module.exports = {
               title: "Vetur1149错误",
               path: "工作踩坑记录/Vetur1149错误",
             },
+            {
+              title: "echarts的仪表盘在Vue3中显示异常",
+              path: "工作踩坑记录/echarts的仪表盘在Vue3中显示异常",
+            },
+            {
+              title: "Element Plus分页组件",
+              path: "工作踩坑记录/Element Plus分页组件",
+            },
           ],
         },
         {
