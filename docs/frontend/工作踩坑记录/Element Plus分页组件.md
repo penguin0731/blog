@@ -109,5 +109,5 @@ watch([currentPage, pageSize], ([newCurrentPage, newPageSize]) => {
 
 ## 参考链接
 
-- [[Component\] [pagination] 切换每页展示数后，会触发了页码的变化 · Issue #10916 · element-plus/element-plus (github.com)](https://github.com/element-plus/element-plus/issues/10916)
+- [\[Component\] [pagination] 切换每页展示数后，会触发了页码的变化 · Issue #10916 · element-plus/element-plus (github.com)](https://github.com/element-plus/element-plus/issues/10916)
 
