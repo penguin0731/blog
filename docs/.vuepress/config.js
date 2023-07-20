@@ -98,7 +98,8 @@ module.exports = {
           title: "Vue3",
           collapsable: true,
           children: [
-            { title: "<script setup>", path: "Vue3/<script setup>" }
+            { title: "<script setup>", path: "Vue3/<script setup>" },
+            { title: "Pinia", path: "Vue3/Pinia" },
           ]
         },
         {
