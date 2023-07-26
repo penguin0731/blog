@@ -2,7 +2,7 @@
 
 当我们执行构建镜像的命令时，Dockerfile 将会被运行
 
-
+## 指令
 
 - FROM
 - WORKDIR
