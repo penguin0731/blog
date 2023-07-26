@@ -100,6 +100,7 @@ module.exports = {
           children: [
             { title: "<script setup>", path: "Vue3/<script setup>" },
             { title: "Pinia", path: "Vue3/Pinia" },
+            { title: "Vite vs webpack", path: "Vue3/Vite vs webpack" },
           ]
         },
         {
