@@ -41,6 +41,7 @@ module.exports = {
           children: [
             { title: "语义化的理解", path: "HTML/语义化的理解" },
             { title: "src和href的区别", path: "HTML/src和href的区别" },
+            { title: "Canvas系列：碰撞检测", path: "Canvas系列：碰撞检测" },
           ],
         },
         {
