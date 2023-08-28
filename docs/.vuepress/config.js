@@ -41,7 +41,7 @@ module.exports = {
           children: [
             { title: "语义化的理解", path: "HTML/语义化的理解" },
             { title: "src和href的区别", path: "HTML/src和href的区别" },
-            { title: "Canvas系列：碰撞检测", path: "Canvas系列：碰撞检测" },
+            { title: "Canvas系列：碰撞检测", path: "HTML/Canvas系列：碰撞检测" },
           ],
         },
         {
@@ -79,6 +79,7 @@ module.exports = {
             { title: "【ES6+】Promise", path: "JavaScript/【ES6+】Promise" },
             { title: "【ES6+】新增的ObjectAPI", path: "JavaScript/【ES6+】新增的ObjectAPI" },
             { title: "blob下载文件", path: "JavaScript/blob下载文件" },
+            { title: "前端最佳实践-判断对象是否存在某个属性", path: "JavaScript/前端最佳实践-判断对象是否存在某个属性" },
           ],
         },
         {
