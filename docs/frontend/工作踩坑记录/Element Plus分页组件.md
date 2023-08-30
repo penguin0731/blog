@@ -50,7 +50,7 @@ function getList(page, size) {
 
 
 
-## 解决方案
+## 解决过程与方案
 
 我在 github 上找到了对应的 issue，但根据回复，这是属于组件合理的表现，那么只能自己来处理这块逻辑了。
 
