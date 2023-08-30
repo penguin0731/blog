@@ -235,6 +235,10 @@ module.exports = {
               title: "Element Plus分页组件",
               path: "工作踩坑记录/Element Plus分页组件",
             },
+            {
+              title: "el-menu切换菜单时触发两次导航守卫",
+              path: "工作踩坑记录/el-menu切换菜单时触发两次导航守卫",
+            },
           ],
         },
         {
