@@ -8,7 +8,7 @@ Pinia 的三个核心概念：state、getter 和 actions，可以简单的理解
 
 ## 优势
 
-对比 Vuex 3.x/4/x，Pinia 具有以下优势：
+对比 Vuex 3.x/4.x，Pinia 具有以下优势：
 
 - mutations 不复存在，只有 state、getter 和 actions
 - actions 支持同步异步修改 state 状态，相当于 mutations 和 actions 合并了
@@ -17,3 +17,4 @@ Pinia 的三个核心概念：state、getter 和 actions，可以简单的理解
 - 足够轻量，压缩后的体积只有1.6kb
 - 支持 TypeScript
 - 支持插件扩展
+
