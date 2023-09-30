@@ -239,6 +239,10 @@ module.exports = {
               title: "el-menu切换菜单时触发两次导航守卫",
               path: "工作踩坑记录/el-menu切换菜单时触发两次导航守卫",
             },
+            {
+              title: "输入中文拼音触发input事件",
+              path: "工作踩坑记录/输入中文拼音触发input事件",
+            },
           ],
         },
         {
