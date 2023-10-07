@@ -5,14 +5,14 @@
 例如，此代码不会重新渲染组件：
 
 ```jsx
-// Wrong
+// bad
 this.state.comment = 'Hello';
 ```
 
 而是应该使用 `this.setState()`：
 
 ```jsx
-// Correct
+// good
 this.setState({comment: 'Hello'});
 ```
 
