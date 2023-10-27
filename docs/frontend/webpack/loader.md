@@ -168,6 +168,128 @@ module.exports = {
 
 
 
+## 常用的 loader
+
+### 1. [babel-loader](https://v4.webpack.docschina.org/loaders/babel-loader/)
+
+babel-loader 基于 babel，用于解析 JavaScript 代码。Babel 是一个 JavaScript 编译器，可以将高级语法（主要是 ES6+）编译成浏览器支持的低版本语法，它可以让你使用最新版本的 JavaScript 语法来写代码，提升效率。
+
+```shell
+# 安装依赖
+npm install -D babel-loader @babel/core @babel/preset-env
+```
+
+Babel 配置里的两大核心：plugins（插件）和 presets（预设）
+
+Babel 的预设可以被看作是一组 Babel 插件。
+
+Babel 官方针对常用环境开发的一些预设：
+
+- [@babel/preset-env](https://www.babeljs.cn/docs/babel-preset-env) for compiling ES2015+ syntax
+- [@babel/preset-typescript](https://www.babeljs.cn/docs/babel-preset-typescript) for [TypeScript](https://www.typescriptlang.org/)
+- [@babel/preset-react](https://www.babeljs.cn/docs/babel-preset-react) for [React](https://reactjs.org/)
+- [@babel/preset-flow](https://www.babeljs.cn/docs/babel-preset-flow) for [Flow](https://flow.org/)
+
+插件和预设的执行顺序：
+
+- 插件比预设先执行
+- 插件执行顺序是插件数组从前向后执行
+- 预设执行顺序是预设数组从后向前执行
+
+**webpack 配置代码：**
+
+```js
+// webpack.config.js
+module: {
+  rules: [
+    {
+      test: /\.m?js$/,
+      exclude: /node_modules/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: [
+            ['@babel/preset-env', { targets: "defaults" }]
+          ],
+          plugins: ['@babel/plugin-proposal-class-properties'],
+          cacheDirectory: true,
+        }
+      }
+    }
+  ]
+}
+```
+
+### 2. [file-loader](https://v4.webpack.docschina.org/loaders/file-loader/)
+
+file-loader 用于处理资源文件，如 png、gif、svg 等。
+
+```js
+// webpack.config.js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'assets/[name]_[hash:8].[ext]'
+            },
+          },
+        ],
+      },
+    ],
+  },
+};
+```
+
+```js
+// file.js
+import img from './image/png';
+```
+
+编译结果：
+
+```
+# result
+assets/image_605dc7bf.png
+```
+
+
+
+### 3. [url-loader](https://v4.webpack.docschina.org/loaders/url-loader/)
+
+url-loader 用于处理图片资源，根据设定的图片大小来决定将图片打包还是转换成 base64 字符。
+
+```js
+// webpack.config.js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.(png|jpg|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+
+
+
+
+
+
 ## 参考链接
 
 - [模块(module) | webpack 中文网 (webpackjs.com)](https://www.webpackjs.com/configuration/module/)
