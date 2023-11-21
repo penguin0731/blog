@@ -262,6 +262,38 @@ module.exports = {
               path: "Docker/操作容器"
             },
           ]
+        },
+        {
+          title: 'Rollup',
+          collapsable: true,
+          children: [
+            {
+              title: "介绍",
+              path: "Rollup/介绍"
+            },
+            {
+              title: "Rollup常用配置",
+              path: "Rollup/Rollup常用配置"
+            },
+          ]
+        },
+        {
+          title: '前端工具链',
+          collapsable: true,
+          children: [
+            {
+              title: "Prettier",
+              path: "前端工具链/Prettier"
+            },
+            {
+              title: "ESLint",
+              path: "前端工具链/ESLint"
+            },
+            {
+              title: "Babel",
+              path: "前端工具链/Babel"
+            },
+          ]
         }
       ],
       '/backend/': [
