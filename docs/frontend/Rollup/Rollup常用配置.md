@@ -126,6 +126,8 @@ export default defineConfig({
 
 这是为了防止其他插件对 CommonJS 检测产生影响。一个例外是 Babel 插件，如果你使用它，请将它放在 CommonJS 插件之前。
 
+Rollup 的插件是从左往右运行。
+
 :::
 
 ```shell

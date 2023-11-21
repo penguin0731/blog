@@ -134,7 +134,6 @@ my-special-file.js
 
 ```shell
 prettier --write .
-prettier -w .
 ```
 
 ### --check（or -c）
@@ -143,7 +142,6 @@ prettier -w .
 
 ```shell
 prettier --check .
-prettier -c .
 ```
 
 如果所有文件都已格式化，则会输出：
