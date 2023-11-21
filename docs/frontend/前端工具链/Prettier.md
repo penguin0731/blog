@@ -12,9 +12,15 @@ unopinionated 的思路则是，我给你提供了许多工具、零件，它们
 
 这也意味着，Prettier 提供的代码风格是最优的，开发者不需要做太多自定义的内容。
 
-## 快速上手
+## [快速上手](https://www.prettier.cn/docs/install.html)
 
-详情见官网[Prettier](https://www.prettier.cn/docs/install.html)。
+在项目中安装 Prettier：
+
+```shell
+npm install --save-dev prettier
+```
+
+
 
 ## 规则配置
 
@@ -119,4 +125,64 @@ node_modules/
 # 忽略特定文件
 my-special-file.js
 ```
+
+## 命令行工具
+
+### --write（or -w）
+
+表示格式化当前目录下所有文件：
+
+```shell
+prettier --write .
+prettier -w .
+```
+
+### --check（or -c）
+
+检查所有文件是否已经按照 Prettier 规则格式化：
+
+```shell
+prettier --check .
+prettier -c .
+```
+
+如果所有文件都已格式化，则会输出：
+
+```
+Checking formatting...
+All matched files use Prettier code style!
+```
+
+如果有文件还没格式化，则会输出：
+
+```
+Checking formatting...
+[warn] src/fileA.js
+[warn] src/fileB.js
+[warn] Code style issues found in 2 files. Run Prettier to fix.
+```
+
+### --find-config-path and --config
+
+指定配置文件的路径，正常情况下会在当前目录中找：
+
+```shell
+prettier --write . --config path/to/.prettierrc
+```
+
+### --no-config
+
+不读取任何配置文件，使用默认配置。
+
+### --ignore-path
+
+指定忽略文件的路径，正常情况下会在当前目录中找：
+
+```shell
+prettier --write . --ignore-path path/to/.prettierignore
+```
+
+
+
+
 
