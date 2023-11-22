@@ -117,7 +117,7 @@ npm install --save-dev @babel/core @babel/cli @babel/preset-env
 }
 ```
 
-## 命令行工具
+## CLI
 
 ### --out-file（or -o）
 

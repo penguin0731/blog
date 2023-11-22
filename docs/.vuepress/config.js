@@ -60,6 +60,10 @@ module.exports = {
               title: "单行与多行文本的溢出处理",
               path: "CSS/单行与多行文本的溢出处理",
             },
+            { title: "CSS工程化", path: "CSS/CSS工程化" },
+            { title: "Sass", path: "CSS/Sass" },
+            { title: "Postcss", path: "CSS/Postcss" },
+            { title: "Tailwindcss", path: "CSS/Tailwindcss" },
           ],
         },
         {
@@ -292,6 +296,14 @@ module.exports = {
             {
               title: "Babel",
               path: "前端工具链/Babel"
+            },
+            {
+              title: "Terser",
+              path: "前端工具链/Terser"
+            },
+            {
+              title: "SWC",
+              path: "前端工具链/SWC"
             },
           ]
         }

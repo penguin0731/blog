@@ -71,7 +71,7 @@ node_modules/
 my-special-file.js
 ```
 
-## 命令行工具
+## CLI
 
 ### --config（or -c）
 
