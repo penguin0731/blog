@@ -66,7 +66,7 @@ $primary-color: #4caf50;
 </html>
 ```
 
-在 `package.json` 中编写 script 命令：
+在 `package.json` 中编写 scripts 命令：
 
 ```json
 {

@@ -40,3 +40,139 @@ body {
 }
 ```
 
+安装 `autoprefixer`插件：
+
+```shell
+npm i autoprefixer -D
+```
+
+在根目录创建`postcss.config.js`配置文件，并输入以下代码：
+
+```js
+const autofixer = require("autoprefixer");
+module.exports = {
+  map: false, // 是否内联sourcemap
+  plugins: [
+    autofixer()
+  ],
+};
+```
+
+在根目录创建`.browserslistrc`文件，并输入以下代码：
+
+```
+last 10 version
+```
+
+在 `package.json` 中编写 scripts 命令：
+
+```json
+{
+	"scripts": {
+		"build": "postcss index.css -o build.css",
+	}
+}
+```
+
+运行 `npm run build` 即可看到效果。
+
+## 常用插件
+
+需要注意，postcss 的配置文件中的插件是从左往右执行的。
+
+### autoprefixer
+
+自动添加浏览器前缀。
+
+```shell
+npm i autoprefixer -D
+```
+
+通过 browserlist 指定兼容的浏览器版本范围，配置 browserlist 的方式有三种，这里只写推荐的一种：创建`.browserslistrc`文件，在该文件中进行配置。
+
+browserlist 的配置规则：
+
+- last n versions：支持最近的 n 个浏览器版本。last 2 versions 表示支持最近的两个浏览器版本
+- n% ：支持全球使用率超过 n% 的浏览器。 > 1% 表示要支持全球使用率超过 1% 的浏览器
+- cover n%：覆盖 n% 的主流浏览器
+- not dead：支持所有“非死亡”的浏览器，已死亡的浏览器指的是那些已经停止更新的浏览器
+- not ie<11：排除 ie 11 以下的浏览器
+- chrome>=n ：支持 chrome浏览器大于等于 n 的版本
+
+### cssnano
+
+压缩 CSS 代码。
+
+```shell
+npm i cssnano -D
+```
+
+cssnano 本身的默认配置已经做的很好了，因此基本上不需要做其他的配置。
+
+### stylelint
+
+stylelint 是规范我们 CSS 代码的，能够将 CSS 代码统一风格。
+
+```
+npm i stylelint stylelint-config-standard -D
+```
+
+这里我们安装了两个依赖：
+
+- stylelint：做 CSS 代码风格校验，但是具体的校验规则它是不知道了，需要我们提供具体的校验规则
+- stylelint-config-standard：这是 stylelint 的一套校验规则，并且是一套标准规则
+
+在根目录下创建`.stylelintrc`文件，并输入以下代码：
+
+```json
+{
+    "extends": "stylelint-config-standard"
+}
+```
+
+stylelint 插件需要在 plugins 选项中排第一位。
+
+### postcss-preset-env
+
+让开发者可以使用最新的 CSS 语法，并将这些语法转化为能够兼容旧版浏览器的代码。
+
+```shell
+npm i postcss-preset-env -D
+```
+
+
+
+### postcss-import
+
+处理 CSS 中的 @import 规则，将有依赖关系的 CSS 文件合并成一个文件，避免浏览器解析 CSS 时产生额外的 HTTP 请求。
+
+```shell
+npm i postcss-import -D
+```
+
+
+
+### purgecss
+
+移除 CSS 中没有使用到的样式，类似 Tree Shaking。
+
+```shell
+npm i @fullhuman/postcss-purgecss -D
+```
+
+```js
+module.exports = {
+  plugins: [
+    require("postcss-import")({
+      path: ["src/css"]
+    }),
+    require("postcss-preset-env")({
+      stage: 2,
+    }),
+    require("@fullhuman/postcss-purgecss")({
+      content: ['./src/**/*.html']
+    })
+  ],
+};
+```
+
