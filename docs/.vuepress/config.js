@@ -63,7 +63,6 @@ module.exports = {
             { title: "CSS工程化", path: "CSS/CSS工程化" },
             { title: "Sass", path: "CSS/Sass" },
             { title: "Postcss", path: "CSS/Postcss" },
-            { title: "Tailwindcss", path: "CSS/Tailwindcss" },
           ],
         },
         {
