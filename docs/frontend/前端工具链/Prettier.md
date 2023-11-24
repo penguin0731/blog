@@ -133,7 +133,7 @@ my-special-file.js
 表示格式化当前目录下所有文件：
 
 ```shell
-prettier --write .
+npx prettier --write .
 ```
 
 ### --check（or -c）
