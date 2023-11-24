@@ -305,6 +305,28 @@ module.exports = {
               path: "前端工具链/SWC"
             },
           ]
+        },
+        {
+          title: '包管理器',
+          collapsable: true,
+          children: [
+            {
+              title: "npm",
+              path: "包管理器/npm"
+            },
+            {
+              title: "pnpm",
+              path: "包管理器/pnpm"
+            },
+            {
+              title: "monorepo&multirepo",
+              path: "包管理器/monorepo&multirepo"
+            },
+            {
+              title: "搭建monorepo工程",
+              path: "包管理器/搭建monorepo工程"
+            },
+          ]
         }
       ],
       '/backend/': [
