@@ -7,7 +7,7 @@ const clientSecret = envConfig[env].clientSecret;
 module.exports = {
   title: "陈欣健的博客",
   description: "基于vuepress搭建的个人博客",
-  base: "/blog/",
+  base: "/",
   host: "localhost",
   port: "2000",
   head: [
@@ -130,7 +130,11 @@ module.exports = {
         {
           title: "TypeScript",
           collapsable: true,
-          children: [{ title: "介绍", path: "TypeScript/介绍" }],
+          children: [
+            { title: "介绍", path: "TypeScript/介绍" },
+            { title: "搭建ts开发环境", path: "TypeScript/搭建ts开发环境" },
+            { title: "类型检查", path: "TypeScript/类型检查" },
+          ],
         },
         {
           title: "webpack",
