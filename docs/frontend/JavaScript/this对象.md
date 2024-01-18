@@ -2,7 +2,7 @@
 
 this 对象是在运行时，基于函数的执行环境决定的：
 
-- 全局作用域中的 this 对象指向 window
+- 全局作用域中的 this 对象指向 window，严格模式下指向 undefined
 
 ```javascript
 console.log(this); // window
