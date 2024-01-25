@@ -134,6 +134,7 @@ module.exports = {
             { title: "介绍", path: "TypeScript/介绍" },
             { title: "搭建ts开发环境", path: "TypeScript/搭建ts开发环境" },
             { title: "类型检查", path: "TypeScript/类型检查" },
+            { title: "枚举", path: "TypeScript/枚举" }
           ],
         },
         {
