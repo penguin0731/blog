@@ -73,7 +73,7 @@ function reactive(obj) {
   return new Proxy(obj, {
     get(target, k) {
       console.log(`读取了${k}`);
-      const retult = Reflect.get(target, k)
+      const retult = Reflect.get(target, k);
       if (typeof target[k] === "object" && target[k] !== null) {
         return reactive(target[k]);
       }
@@ -91,6 +91,14 @@ function reactive(obj) {
       console.log(`删除了${k}`);
       return Reflect.deleteProperty(target, k);
     },
+    has(target, key) {
+      console.log(`判断属性${key}是否存在`);
+      return Reflect.has(target, key);
+    },
+    ownKeys(target) {
+      console.log(`迭代属性`);
+      return Reflect.ownKeys(target);
+    },
   });
 }
 
@@ -105,11 +113,15 @@ proxy.c.f.push(7);
 // 新增了3
 // 修改了length
 delete proxy.b; // 删除了b
+"a" in proxy; // 判断属性a是否存在
+Object.keys(proxy); // 遍历属性
 ```
 
 细心的小伙伴会发现，在读取的时候，也有递归，但这个递归并不是在初始化的时候进行的，而是在读取的属性是一个对象的时候进行的，因为我们需要确保读取的对象是一个代理对象而不是原始对象。
 
-总结，`Proxy` 比 `Object.defineProperty` 的执行效率高的原因在于，`Object.defineProperty` 监听的是属性，在初始化时需要递归遍历属性，而 `Proxy` 监听的是对象，并不需要递归遍历属性，只有在读取的属性是一个对象时才会递归。
+我们还能看到 Proxy 不仅可以拦截原始对象的属性的读取和设置，还能拦截属性判断和遍历操作，这是因为这些操作都属于对象的基本操作，而 Proxy 能够做到的正是这些。
+
+总结，`Proxy` 比 `Object.defineProperty` 的执行效率高的原因在于，`Object.defineProperty` 监听的是属性，在初始化时需要递归遍历属性，而 `Proxy` 监听的是对象的基本操作，并且不需要递归遍历属性，只有在读取的属性是一个对象时才会递归。
 
 ## Vue3 新增了 Composition API
 
