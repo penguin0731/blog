@@ -20,7 +20,7 @@ module.exports = {
       var _hmt = _hmt || [];
       (function() {
         var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?92d7175f9322eca415c75ed0ff61d9aa";
+        hm.src = "https://hm.baidu.com/hm.js?8bdb20f90af1eef474132fd92bfeb8cc";
         var s = document.getElementsByTagName("script")[0]; 
         s.parentNode.insertBefore(hm, s);
       })();
@@ -41,7 +41,10 @@ module.exports = {
           children: [
             { title: "语义化的理解", path: "HTML/语义化的理解" },
             { title: "src和href的区别", path: "HTML/src和href的区别" },
-            { title: "Canvas系列：碰撞检测", path: "HTML/Canvas系列：碰撞检测" },
+            {
+              title: "Canvas系列：碰撞检测",
+              path: "HTML/Canvas系列：碰撞检测",
+            },
           ],
         },
         {
@@ -75,14 +78,28 @@ module.exports = {
             { title: "作用域", path: "JavaScript/作用域" },
             { title: "闭包", path: "JavaScript/闭包" },
             { title: "原型与继承", path: "JavaScript/原型与继承" },
-            { title: "DOM事件的传播机制", path: "JavaScript/DOM事件的传播机制" },
+            {
+              title: "DOM事件的传播机制",
+              path: "JavaScript/DOM事件的传播机制",
+            },
             { title: "【ES6+】Class", path: "JavaScript/【ES6+】Class" },
             { title: "【ES6+】Symbol", path: "JavaScript/【ES6+】Symbol" },
             { title: "【ES6+】Set与Map", path: "JavaScript/【ES6+】Set与Map" },
             { title: "【ES6+】Promise", path: "JavaScript/【ES6+】Promise" },
-            { title: "【ES6+】新增的ObjectAPI", path: "JavaScript/【ES6+】新增的ObjectAPI" },
+            {
+              title: "【ES6+】新增的ObjectAPI",
+              path: "JavaScript/【ES6+】新增的ObjectAPI",
+            },
             { title: "blob下载文件", path: "JavaScript/blob下载文件" },
-            { title: "前端最佳实践-判断对象是否存在某个属性", path: "JavaScript/前端最佳实践-判断对象是否存在某个属性" },
+            {
+              title: "前端最佳实践-判断对象是否存在某个属性",
+              path: "JavaScript/前端最佳实践-判断对象是否存在某个属性",
+            },
+            {
+              title: "前端最佳实践-类型检测",
+              path: "JavaScript/前端最佳实践-类型检测",
+            },
+            { title: "浮点数精度问题", path: "JavaScript/浮点数精度问题" },
           ],
         },
         {
@@ -103,10 +120,11 @@ module.exports = {
           title: "Vue3",
           collapsable: true,
           children: [
+            { title: "Vue3 和 Vue2 的区别", path: "Vue3/Vue3 和 Vue2 的区别" },
             { title: "<script setup>", path: "Vue3/<script setup>" },
             { title: "Pinia", path: "Vue3/Pinia" },
             { title: "Vite vs webpack", path: "Vue3/Vite vs webpack" },
-          ]
+          ],
         },
         {
           title: "React",
@@ -134,7 +152,7 @@ module.exports = {
             { title: "介绍", path: "TypeScript/介绍" },
             { title: "搭建ts开发环境", path: "TypeScript/搭建ts开发环境" },
             { title: "类型检查", path: "TypeScript/类型检查" },
-            { title: "枚举", path: "TypeScript/枚举" }
+            { title: "枚举", path: "TypeScript/枚举" },
           ],
         },
         {
@@ -169,7 +187,6 @@ module.exports = {
           collapsable: true,
           children: [
             { title: "Cookie", path: "浏览器/Cookie" },
-            { title: "浏览器的缓存策略", path: "浏览器/浏览器的缓存策略" },
             { title: "垃圾回收机制", path: "浏览器/垃圾回收机制" },
             { title: "浏览器工作原理", path: "浏览器/浏览器工作原理" },
             { title: "跨标签页通信", path: "浏览器/跨标签页通信" },
@@ -182,6 +199,7 @@ module.exports = {
           children: [
             { title: "五层网络模型", path: "计算机网络/五层网络模型" },
             { title: "常见的请求方法", path: "计算机网络/常见的请求方法" },
+            { title: "HTTP的缓存协议", path: "计算机网络/HTTP的缓存协议" },
             { title: "加密", path: "计算机网络/加密" },
             { title: "JWT", path: "计算机网络/JWT" },
             { title: "跨域", path: "计算机网络/跨域" },
@@ -204,9 +222,100 @@ module.exports = {
           ],
         },
         {
+          title: "Node",
+          collapsable: true,
+          children: [
+            { title: "介绍", path: "Node/介绍" },
+            { title: "全局对象", path: "Node/全局对象" },
+            { title: "文件IO", path: "Node/文件IO" },
+            { title: "文件流", path: "Node/文件流" },
+            { title: "Node中的事件循环", path: "Node/Node中的事件循环" },
+          ],
+        },
+        {
           title: "设计模式",
           collapsable: true,
           children: [{ title: "介绍", path: "设计模式/介绍" }],
+        },
+        {
+          title: "Docker",
+          collapsable: true,
+          children: [
+            {
+              title: "介绍",
+              path: "Docker/介绍",
+            },
+            {
+              title: "操作镜像",
+              path: "Docker/操作镜像",
+            },
+            {
+              title: "操作容器",
+              path: "Docker/操作容器",
+            },
+          ],
+        },
+        {
+          title: "Rollup",
+          collapsable: true,
+          children: [
+            {
+              title: "介绍",
+              path: "Rollup/介绍",
+            },
+            {
+              title: "Rollup常用配置",
+              path: "Rollup/Rollup常用配置",
+            },
+          ],
+        },
+        {
+          title: "前端工具链",
+          collapsable: true,
+          children: [
+            {
+              title: "Prettier",
+              path: "前端工具链/Prettier",
+            },
+            {
+              title: "ESLint",
+              path: "前端工具链/ESLint",
+            },
+            {
+              title: "Babel",
+              path: "前端工具链/Babel",
+            },
+            {
+              title: "Terser",
+              path: "前端工具链/Terser",
+            },
+            {
+              title: "SWC",
+              path: "前端工具链/SWC",
+            },
+          ],
+        },
+        {
+          title: "包管理器",
+          collapsable: true,
+          children: [
+            {
+              title: "npm",
+              path: "包管理器/npm",
+            },
+            {
+              title: "pnpm",
+              path: "包管理器/pnpm",
+            },
+            {
+              title: "monorepo&multirepo",
+              path: "包管理器/monorepo&multirepo",
+            },
+            {
+              title: "搭建monorepo工程",
+              path: "包管理器/搭建monorepo工程",
+            },
+          ],
         },
         {
           title: "规范",
@@ -253,102 +362,12 @@ module.exports = {
             },
           ],
         },
-        {
-          title: "Docker",
-          collapsable: true,
-          children: [
-            {
-              title: "介绍",
-              path: "Docker/介绍"
-            },
-            {
-              title: "操作镜像",
-              path: "Docker/操作镜像"
-            },
-            {
-              title: "操作容器",
-              path: "Docker/操作容器"
-            },
-          ]
-        },
-        {
-          title: 'Rollup',
-          collapsable: true,
-          children: [
-            {
-              title: "介绍",
-              path: "Rollup/介绍"
-            },
-            {
-              title: "Rollup常用配置",
-              path: "Rollup/Rollup常用配置"
-            },
-          ]
-        },
-        {
-          title: '前端工具链',
-          collapsable: true,
-          children: [
-            {
-              title: "Prettier",
-              path: "前端工具链/Prettier"
-            },
-            {
-              title: "ESLint",
-              path: "前端工具链/ESLint"
-            },
-            {
-              title: "Babel",
-              path: "前端工具链/Babel"
-            },
-            {
-              title: "Terser",
-              path: "前端工具链/Terser"
-            },
-            {
-              title: "SWC",
-              path: "前端工具链/SWC"
-            },
-          ]
-        },
-        {
-          title: '包管理器',
-          collapsable: true,
-          children: [
-            {
-              title: "npm",
-              path: "包管理器/npm"
-            },
-            {
-              title: "pnpm",
-              path: "包管理器/pnpm"
-            },
-            {
-              title: "monorepo&multirepo",
-              path: "包管理器/monorepo&multirepo"
-            },
-            {
-              title: "搭建monorepo工程",
-              path: "包管理器/搭建monorepo工程"
-            },
-          ]
-        }
+        
       ],
-      '/backend/': [
+      "/backend/": [
         {
           title: "简介",
           path: "introduction/",
-        },
-        {
-          title: "Node",
-          collapsable: true,
-          children: [
-            { title: "介绍", path: "Node/介绍" },
-            { title: "全局对象", path: "Node/全局对象" },
-            { title: "文件IO", path: "Node/文件IO" },
-            { title: "文件流", path: "Node/文件流" },
-            { title: "Node中的事件循环", path: "Node/Node中的事件循环" },
-          ],
         },
         {
           title: "Java",
@@ -363,13 +382,16 @@ module.exports = {
             { title: "类和类的关系", path: "Java/类和类的关系" },
             { title: "修饰符", path: "Java/修饰符" },
             { title: "Java的运行机制", path: "Java/Java的运行机制" },
-            { title: "Java面向对象的三大特征", path: "Java/Java面向对象的三大特征" },
+            {
+              title: "Java面向对象的三大特征",
+              path: "Java/Java面向对象的三大特征",
+            },
             { title: "接口", path: "Java/接口" },
             { title: "内部类", path: "Java/内部类" },
             { title: "枚举", path: "Java/枚举" },
           ],
         },
-      ]
+      ],
     },
     nav: [
       { text: "Home", link: "/" },
