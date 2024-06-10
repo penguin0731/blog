@@ -153,7 +153,8 @@ module.exports = {
             { title: "搭建ts开发环境", path: "TypeScript/搭建ts开发环境" },
             { title: "类型检查", path: "TypeScript/类型检查" },
             { title: "枚举", path: "TypeScript/枚举" },
-            { title: "接口", path: "TypeScript/接口" }
+            { title: "接口", path: "TypeScript/接口" },
+            { title: "类型兼容性", path: "TypeScript/类型兼容性" }
           ],
         },
         {
@@ -421,15 +422,7 @@ module.exports = {
         locale: "zh-CN",
       },
     ],
-    [
-      "vuepress-plugin-nuggets-style-copy",
-      {
-        copyText: "复制代码",
-        tip: {
-          content: "复制成功",
-        },
-      },
-    ],
+    ['@xiaopanda/vuepress-plugin-code-copy'],
     [
       "@vuepress/last-updated",
       {
