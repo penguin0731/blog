@@ -336,7 +336,3 @@ flex: 2 2;
 flex: 2 2 10%;
 ```
 
-<Vssue 
-    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
-    :title="$page.relativePath.split('/')[1]" 
-/>

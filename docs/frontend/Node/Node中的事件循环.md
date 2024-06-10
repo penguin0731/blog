@@ -192,7 +192,4 @@ test();
 
 - [浏览器与Node的事件循环(Event Loop)有何区别? ](https://juejin.cn/post/6844903761949753352#heading-13)
 
-<Vssue 
-    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
-    :title="$page.relativePath.split('/')[1]" 
-/>
+

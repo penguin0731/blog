@@ -164,7 +164,3 @@ export default class MyComp extends React.Component {
 
 可以看到，我们在`change`函数中调用了两次`this.setState`，在更新后 `state` 依然保留了`bar`变量，并且`render`函数只执行了一次，这是因为 React 对`this.setState`做了优化，多次执行时，统一将最终的结果赋值给 `state`，再执行`render`函数。
 
-<Vssue 
-    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
-    :title="$page.relativePath.split('/')[1]" 
-/>

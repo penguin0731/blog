@@ -111,7 +111,4 @@ const element = React.createElement(
 
 - [官方文档 - JSX简介](https://react.docschina.org/docs/introducing-jsx.html)
 
-<Vssue 
-    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
-    :title="$page.relativePath.split('/')[1]" 
-/>
+

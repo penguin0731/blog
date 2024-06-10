@@ -101,7 +101,3 @@ HTTP协议是对内容格式的规定，它**使用**了TCP协议完成消息的
 2. 使用HTTP协议的服务器不会主动发消息给客户端（尽管TCP可以），只对请求进行响应
 3. 每一个HTTP请求-响应，都要先建立TCP连接（三次握手），然后完成请求-响应后，再销毁连接（四次挥手）。这就导致每次请求-响应都是相互独立的，无法保持状态。
 
-<Vssue 
-    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
-    :title="$page.relativePath.split('/')[1]" 
-/>

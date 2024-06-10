@@ -281,7 +281,4 @@ export default {
 
 最后在这里推荐一个库：[vue-virtual-scroller](https://github.com/Akryum/vue-virtual-scroller#readme)，我们上面的代码其实就是在实现这个库的简易版。
 
-<Vssue 
-    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
-    :title="$page.relativePath.split('/')[1]" 
-/>
+

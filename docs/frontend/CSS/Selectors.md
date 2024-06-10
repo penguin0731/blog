@@ -1,4 +1,4 @@
-# Selectors（选择器）
+# Selectors
 
 ## 通配符选择器
 
@@ -179,7 +179,3 @@ img ~ p {
 }
 ```
 
-<Vssue 
-    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
-    :title="$page.relativePath.split('/')[1]" 
-/>

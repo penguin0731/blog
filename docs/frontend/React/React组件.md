@@ -154,7 +154,3 @@ ReactDOM.render(<MyComp number={10}/>, document.getElementById('root'));
 
 
 
-<Vssue 
-    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
-    :title="$page.relativePath.split('/')[1]" 
-/>

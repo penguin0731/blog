@@ -297,7 +297,4 @@ module.exports = {
 - [编写一个 loader | webpack 中文网 (webpackjs.com)](https://www.webpackjs.com/contribute/writing-a-loader/)
 - [loader API | webpack 中文网 (webpackjs.com)](https://www.webpackjs.com/api/loaders/)
 
-<Vssue 
-    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
-    :title="$page.relativePath.split('/')[1]" 
-/>
+

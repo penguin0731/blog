@@ -32,7 +32,4 @@ import Home from './page/Home/Home';
 
 - [https://github.com/microsoft/TypeScript/issues/25460](https://github.com/microsoft/TypeScript/issues/25460#issuecomment-531068391)
 
-<Vssue 
-    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
-    :title="$page.relativePath.split('/')[1]" 
-/>
+

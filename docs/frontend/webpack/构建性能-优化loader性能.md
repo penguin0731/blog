@@ -120,7 +120,4 @@ module.exports = testLoader;
 
 :::
 
-<Vssue 
-    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
-    :title="$page.relativePath.split('/')[1]" 
-/>
+

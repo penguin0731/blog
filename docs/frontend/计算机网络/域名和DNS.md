@@ -64,7 +64,3 @@ dns-prefetch 可以帮助我们解决这个问题，在 link 标签中将 rel �
 
 
 
-<Vssue 
-    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
-    :title="$page.relativePath.split('/')[1]" 
-/>

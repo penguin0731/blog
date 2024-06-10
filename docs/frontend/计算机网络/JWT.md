@@ -207,7 +207,4 @@ JWT能够防止篡改，如果攻击者改动了前两个部分，就会导致�
 
 所以，在秘钥不被泄露的前提下，一个验证通过的 token 是值得被信任的。
 
-<Vssue 
-    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
-    :title="$page.relativePath.split('/')[1]" 
-/>
+

@@ -96,7 +96,3 @@ class Dog extends Animal{
 }
 ```
 
-<Vssue 
-    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
-    :title="$page.relativePath.split('/')[1]" 
-/>

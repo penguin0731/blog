@@ -13,7 +13,3 @@ XSS（Cross Site Scripting，跨站脚本攻击），是指攻击者利用站点
 - 过滤：去掉一些危险的标签，去掉一些危险的属性
 - 编码：对危险的标签进行HTML实体编码
 
-<Vssue 
-    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
-    :title="$page.relativePath.split('/')[1]" 
-/>

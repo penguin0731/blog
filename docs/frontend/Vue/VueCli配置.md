@@ -45,7 +45,4 @@ module.exports = {
 
 - [官方文档 - VueCli配置参考](https://cli.vuejs.org/zh/config/)
 
-<Vssue 
-    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
-    :title="$page.relativePath.split('/')[1]" 
-/>
+

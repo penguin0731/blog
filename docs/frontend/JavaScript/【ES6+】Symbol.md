@@ -16,7 +16,3 @@ Symbol 设计的初衷就是为了给对象添加私有属性。
   - ES6 新增的 `Object.getOwnPropertySymbols` 可以读取
 - Symbol 无法被隐式转换，因此不能用于数学运算、字符串拼接或其他隐式转换场景，但可以显示转换为字符串，使用 String 构造函数转换即可，`console.log` 方法之所以能够输出就是因为内部进行了显示转换
 
-<Vssue 
-    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
-    :title="$page.relativePath.split('/')[1]" 
-/>

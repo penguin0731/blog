@@ -112,7 +112,3 @@ vm.d = "new data";
 
 - [官方文档 - 深入响应式原理](https://cn.vuejs.org/v2/guide/reactivity.html)
 
-<Vssue 
-    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
-    :title="$page.relativePath.split('/')[1]" 
-/>

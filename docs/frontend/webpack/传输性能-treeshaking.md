@@ -140,7 +140,3 @@ import "./common.js";
 
 这种方式我们一般不处理，通常是一些第三方库在它们自己的`package.json`中标注。
 
-<Vssue 
-    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
-    :title="$page.relativePath.split('/')[1]" 
-/>

@@ -112,7 +112,4 @@ WebSocket是HTML5新增的协议，它利用HTTP协议完成握手，然后通�
 
 最后，当客户端收到响应后即可完成握手，随后使用建立的TCP连接直接发送和接收消息。
 
-<Vssue 
-    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
-    :title="$page.relativePath.split('/')[1]" 
-/>
+

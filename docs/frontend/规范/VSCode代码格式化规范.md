@@ -38,7 +38,4 @@ npm install --save-dev --save-exact prettier
 npx prettier --write --config .prettierrc "src/**/*.{js,json,vue,scss,css,md}"
 ```
 
-<Vssue 
-    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
-    :title="$page.relativePath.split('/')[1]" 
-/>
+

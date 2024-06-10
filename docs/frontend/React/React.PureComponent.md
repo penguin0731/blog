@@ -247,7 +247,3 @@ AddTask 组件在 TaskContainer 组件第二次渲染时，也跟着重新渲染
 
 因此，在平时的开发中，我们可以尽量使用 React.PureComponent 来提高效率，并且需要注意，在修改状态时，永远是创建新状态去覆盖旧的状态。
 
-<Vssue 
-    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
-    :title="$page.relativePath.split('/')[1]" 
-/>

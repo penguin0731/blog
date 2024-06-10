@@ -54,7 +54,3 @@ Cache-Control常用的值还有：
 
 ![image-20220523162101746](https://penguinbucket.obs.cn-southwest-2.myhuaweicloud.com/img/image-20220523162101746.png)
 
-<Vssue 
-    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
-    :title="$page.relativePath.split('/')[1]" 
-/>

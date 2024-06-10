@@ -19,7 +19,4 @@ CSRF（Cross-site request forgery，跨站请求伪造）
 | 使用csrf token  | ⭐️⭐️⭐️⭐️⭐️  | 获取到token后未进行操作仍然会被攻击     |
 | 使用referer防护 | ⭐️⭐️     | 过去很常用，现在已经发现漏洞            |
 
-<Vssue 
-    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
-    :title="$page.relativePath.split('/')[1]" 
-/>
+

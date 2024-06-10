@@ -568,7 +568,4 @@ watch 本质是一个`user watche`r，它的初始化发生在 Vue 实例的 bef
 - [响应式原理五：computed](https://juejin.cn/post/7073856712003813384)
 - [响应式原理六：watcher](https://juejin.cn/post/7077099321996345351)
 
-<Vssue 
-    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
-    :title="$page.relativePath.split('/')[1]" 
-/>
+

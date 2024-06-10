@@ -80,8 +80,5 @@ Cookie是浏览器中特有的一个概念，它就像浏览器的专属卡包�
 document.cookie = "键=值; path=?; domain=?; expire=?; max-age=?; secure";
 ```
 
-<Vssue 
-    :options="{ labels: [$page.relativePath.split('/')[0]] }" 
-    :title="$page.relativePath.split('/')[1]" 
-/>
+
 
