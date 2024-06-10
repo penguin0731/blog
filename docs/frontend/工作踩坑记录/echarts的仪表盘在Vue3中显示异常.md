@@ -1,3 +1,5 @@
+# echarts的仪表盘在Vue3中显示异常
+
 > 2023.06.27
 
 ## 问题描述
@@ -70,6 +72,4 @@ onMounted(() => {
 - [FAQ - Apache ECharts](https://echarts.apache.org/zh/faq.html#others)
 
 
-
-<Vssue     :options="{ labels: [$page.relativePath.split('/')[0]] }"     :title="$page.relativePath.split('/')[1]" />
 

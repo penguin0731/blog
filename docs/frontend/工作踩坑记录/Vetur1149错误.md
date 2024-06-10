@@ -1,3 +1,5 @@
+# Vetur1149错误
+
 > 2021.11.26
 
 ## 问题描述
@@ -31,5 +33,4 @@ import Home from './page/Home/Home';
 ## 参考链接
 
 - [https://github.com/microsoft/TypeScript/issues/25460](https://github.com/microsoft/TypeScript/issues/25460#issuecomment-531068391)
-
 

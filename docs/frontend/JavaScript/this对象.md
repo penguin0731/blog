@@ -58,7 +58,4 @@ console.log(this); // window
 
 另外我们也可以通过函数原型上的 call、bind、apply 方法来手动的改变 this 指向。
 
-  <Vssue 
-      :options="{ labels: [$page.relativePath.split('/')[0]] }" 
-      :title="$page.relativePath.split('/')[1]" 
-  />
+
