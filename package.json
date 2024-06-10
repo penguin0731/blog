@@ -11,16 +11,16 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@vssue/api-github-v3": "^1.4.7",
-    "@vssue/vuepress-plugin-vssue": "^1.4.8",
-    "@vuepress/plugin-active-header-links": "^1.9.7",
-    "@vuepress/plugin-back-to-top": "^1.9.7",
-    "@xiaopanda/vuepress-plugin-code-copy": "^1.0.3",
-    "cross-env": "^7.0.3",
-    "vuepress": "^1.9.7",
-    "vuepress-plugin-medium-zoom": "^1.1.9"
+    "@vssue/api-github-v3": "1.4.7",
+    "@vssue/vuepress-plugin-vssue": "1.4.8",
+    "@vuepress/plugin-active-header-links": "1.9.7",
+    "@vuepress/plugin-back-to-top": "1.9.7",
+    "@xiaopanda/vuepress-plugin-code-copy": "1.0.3",
+    "cross-env": "7.0.3",
+    "vuepress": "1.9.7",
+    "vuepress-plugin-medium-zoom": "1.1.9"
   },
   "dependencies": {
-    "moment": "^2.29.3"
+    "moment": "2.29.3"
   }
 }
