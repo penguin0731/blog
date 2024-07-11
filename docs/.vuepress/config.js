@@ -264,6 +264,14 @@ module.exports = defineUserConfig({
           ],
         },
         {
+          text: "Harmony",
+          prefix: "Harmony",
+          collapsible: true,
+          children: [
+            '从TypeScript到ArkTS的适配规则'
+          ],
+        },
+        {
           text: "工作踩坑记录",
           prefix: "工作踩坑记录",
           collapsible: true,
