@@ -69,3 +69,35 @@ type Employee = Identity & Contact // 不支持
 interface Employee extends Identity,  Contact {} // 推荐
 ```
 
+## 不支持通过索引访问字段
+
+ArkTS 不支持通过索引（obj[field]）访问字段，只能通过点操作符（obj.field）访问字段。
+
+但 ArkTS 可以通过索引访问类型化数组（如 Int32Array）的元素。
+
+```tsx
+class Point {
+  x: string = ''
+  y: string = ''
+}
+let p: Point = {x: '1', y: '2'};
+
+console.log(p['x']); // 不支持
+console.log(p.x); // 推荐
+```
+
+## 不支持解构赋值
+
+ArkTS不支持解构赋值。可使用其他替代方法，例如，使用临时变量。
+
+```tsx
+let [one, two] = [1, 2];
+
+[one, two] = [two, one]; // 不支持
+
+// 推荐
+let tmp = one;
+one = two;
+two = tmp;
+```
+
