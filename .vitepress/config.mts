@@ -25,6 +25,20 @@ export default defineConfig({
   outDir: '../public',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+    lastUpdated: {
+      text: '最近更新',
+      formatOptions: {
+        dateStyle: 'medium',
+        timeStyle: 'medium'
+      }
+    },
+    returnToTopLabel: '返回顶部',
+    footer: {
+      copyright: 'MIT Licensed | Copyright © 2024-present penguin0731'
+    },
+    search: {
+      provider: 'local'
+    },
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Frontend', link: '/frontend/introduction' },
@@ -372,16 +386,6 @@ export default defineConfig({
           ],
         },
       ],
-    },
-    lastUpdated: {
-      text: 'Updated at',
-      formatOptions: {
-        dateStyle: 'full',
-        timeStyle: 'medium'
-      }
-    },
-    footer: {
-      copyright: 'MIT Licensed | Copyright © 2024-present penguin0731'
     }
   },
   lastUpdated: true
