@@ -4,16 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development vuepress dev docs --open --temp .temp",
-    "build": "vuepress build docs",
-    "deploy": "sh deploy.sh"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:dev": "vitepress dev --open --port 2000",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@vuepress/bundler-vite": "^2.0.0-rc.13",
-    "@vuepress/theme-default": "^2.0.0-rc.35",
-    "cross-env": "7.0.3",
-    "vuepress": "^2.0.0-rc.13"
+    "vitepress": "^1.3.4"
   }
 }
