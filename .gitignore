@@ -1,5 +1,5 @@
 .vitepress/cache
-node_modules/
+node_modules
 
 # 忽略IDE生成的文件和配置
 .idea/
