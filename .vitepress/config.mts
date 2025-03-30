@@ -22,7 +22,6 @@ export default defineConfig({
     `,
     ],
   ],
-  outDir: '../public',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     lastUpdated: {
