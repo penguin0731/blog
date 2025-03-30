@@ -204,6 +204,7 @@ export default defineConfig({
             { text: "浏览器工作原理", link: "/frontend/浏览器/浏览器工作原理" },
             { text: "跨标签页通信", link: "/frontend/浏览器/跨标签页通信" },
             { text: "浏览器中的事件循环", link: "/frontend/浏览器/浏览器中的事件循环" },
+            { text: "浏览器的缓存策略", link: "/frontend/浏览器/浏览器的缓存策略" }
           ],
         },
         {
