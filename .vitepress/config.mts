@@ -168,7 +168,8 @@ export default defineConfig({
             { text: "搭建ts开发环境", link: "/frontend/TypeScript/搭建ts开发环境" },
             { text: "类型检查", link: "/frontend/TypeScript/类型检查" },
             { text: "枚举", link: "/frontend/TypeScript/枚举" },
-            { text: "接口", link: "/frontend/TypeScript/接口" }
+            { text: "接口", link: "/frontend/TypeScript/接口" },
+            { text: "泛型", link: "/frontend/TypeScript/泛型" }
           ],
         },
         {
