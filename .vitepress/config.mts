@@ -169,6 +169,8 @@ export default defineConfig({
             { text: "类型检查", link: "/frontend/TypeScript/类型检查" },
             { text: "枚举", link: "/frontend/TypeScript/枚举" },
             { text: "接口", link: "/frontend/TypeScript/接口" },
+            { text: "类型兼容性", link: "/frontend/TypeScript/类型兼容性" },
+            { text: "TS中的类", link: "/frontend/TypeScript/TS中的类" },
             { text: "泛型", link: "/frontend/TypeScript/泛型" }
           ],
         },

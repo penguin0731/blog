@@ -21,7 +21,7 @@ TypeScript 要求应该使用属性列表来描述。
 
 ```tsx
 class User {
-	name: string
+  name: string
   age: number
   
   constructor(name: string, age: number) {
@@ -42,7 +42,7 @@ class User {
 
 ```tsx
 class User {
-	name: string
+  name: string
   age: number
   gender: '男' | '女' = '男'
   
@@ -57,7 +57,7 @@ class User {
 
 ```tsx
 class User {
-	name: string
+  name: string
   age: number
   gender: '男' | '女' = '男'
   pid?: string
@@ -73,8 +73,8 @@ class User {
 
 ```tsx
 class User {
-	readonly id: number
-	name: string
+  readonly id: number
+  name: string
   age: number
   gender: '男' | '女' = '男'
   pid?: string
@@ -91,8 +91,8 @@ class User {
 
 ```tsx
 class User {
-	readonly id: number
-	name: string
+  readonly id: number
+  name: string
   age: number
   gender: '男' | '女' = '男'
   pid?: string
